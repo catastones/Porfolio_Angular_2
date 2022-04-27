@@ -27,7 +27,7 @@ import { SkillComponent } from './Componentes/Porfolio/skill/skill.component';
 import { SModalEditComponent } from './Componentes/Porfolio/skill/s-modal-edit/s-modal-edit.component';
 import { SModalDeleteComponent } from './Componentes/Porfolio/skill/s-modal-delete/s-modal-delete.component';
 import { SModalNewComponent } from './Componentes/Porfolio/skill/s-modal-new/s-modal-new.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -61,6 +61,7 @@ import { SModalNewComponent } from './Componentes/Porfolio/skill/s-modal-new/s-m
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],
