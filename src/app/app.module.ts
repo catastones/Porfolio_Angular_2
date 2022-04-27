@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AcercaComponent } from './Componentes/Porfolio/acerca/acerca.component';
-
 import { EducacionComponent } from './Componentes/Porfolio/educacion/educacion.component';
 import { EModalEditComponent } from './Componentes/Porfolio/educacion/e-modal-edit/e-modal-edit.component';
 import { EModalDeleteComponent } from './Componentes/Porfolio/educacion/e-modal-delete/e-modal-delete.component';
@@ -27,6 +26,7 @@ import { SkillComponent } from './Componentes/Porfolio/skill/skill.component';
 import { SModalEditComponent } from './Componentes/Porfolio/skill/s-modal-edit/s-modal-edit.component';
 import { SModalDeleteComponent } from './Componentes/Porfolio/skill/s-modal-delete/s-modal-delete.component';
 import { SModalNewComponent } from './Componentes/Porfolio/skill/s-modal-new/s-modal-new.component';
+import { PorfolioComponent } from './Componentes/Porfolio/porfolio.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -55,7 +55,8 @@ import { HttpClientModule } from '@angular/common/http';
     SkillComponent,
     SModalEditComponent,
     SModalDeleteComponent,
-    SModalNewComponent
+    SModalNewComponent,
+    PorfolioComponent
 
   ],
   imports: [

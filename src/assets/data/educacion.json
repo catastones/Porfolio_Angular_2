@@ -1,0 +1,31 @@
+{
+	"education": [
+		{
+			"escuela": "UTN",
+			"titulo": "Ingeniería",
+			"imagen": "https://www.ort.edu.ar/img/LogoOrtArgWeb2017.jpg",
+			"carrera": "Sistemas Computacionales",
+			"puntaje": 100,
+			"inicio": "2019",
+			"fin": "2023"
+		},
+		{
+			"escuela": "Centro de Enseñanza Técnica Industrial",
+			"titulo": "Tecnologo",
+			"imagen": "https://www.frlp.utn.edu.ar/sites/default/files/inline-images/simbolo0.png",
+			"career": "Desarrollo de Software",
+			"puntaje": 82,
+			"inicio": "2014",
+			"fin": "2018"
+		},
+		{
+			"escuela": "Escuela Secundaria Técnica 14",
+			"titulo": "Técnico",
+			"imagen": "http://www.unla.edu.ar/images/logo_web.jpg",
+			"career": "Electronica, comunicacion y sistemas de control",
+			"puntaje": 70,
+			"inicio": "2012",
+			"fin": "2014"
+		}
+	]
+}

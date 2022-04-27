@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 @Component({
   selector: 'app-acerca',
   templateUrl: './acerca.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcercaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
 @Component({
   selector: 'app-e-laboral',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ELaboralComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
   }
