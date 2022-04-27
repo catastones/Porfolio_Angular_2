@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AcercaComponent } from './Componentes/Porfolio/acerca/acerca.component';
-import { AModalEditComponent } from './Componentes/Porfolio/Acerca/a-modal-edit/a-modal-edit.component';
-import { AModalDeleteComponent } from './Componentes/Porfolio/Acerca/a-modal-delete/a-modal-delete.component';
+
 import { EducacionComponent } from './Componentes/Porfolio/educacion/educacion.component';
 import { EModalEditComponent } from './Componentes/Porfolio/educacion/e-modal-edit/e-modal-edit.component';
 import { EModalDeleteComponent } from './Componentes/Porfolio/educacion/e-modal-delete/e-modal-delete.component';
@@ -16,9 +15,6 @@ import { CModalEditComponent } from './Componentes/Porfolio/cursos/c-modal-edit/
 import { CModalDeleteComponent } from './Componentes/Porfolio/cursos/c-modal-delete/c-modal-delete.component';
 import { CModalNewComponent } from './Componentes/Porfolio/cursos/c-modal-new/c-modal-new.component';
 import { ELaboralComponent } from './Componentes/Porfolio/e-laboral/e-laboral.component';
-import { LModalEditComponent } from './Componentes/Porfolio/eLaboral/lmodal-edit/lmodal-edit.component';
-import { LModalDeleteComponent } from './Componentes/Porfolio/e-Laboral/lmodal-delete/lmodal-delete.component';
-import { LModalNewComponent } from './Componentes/Porfolio/e-Laboral/lmodal-new/lmodal-new.component';
 import { EncabezadoComponent } from './Componentes/Porfolio/encabezado/encabezado.component';
 import { EnModalEditComponent } from './Componentes/Porfolio/encabezado/en-modal-edit/en-modal-edit.component';
 import { EnModalDeleteComponent } from './Componentes/Porfolio/encabezado/en-modal-delete/en-modal-delete.component';
@@ -31,14 +27,13 @@ import { SkillComponent } from './Componentes/Porfolio/skill/skill.component';
 import { SModalEditComponent } from './Componentes/Porfolio/skill/s-modal-edit/s-modal-edit.component';
 import { SModalDeleteComponent } from './Componentes/Porfolio/skill/s-modal-delete/s-modal-delete.component';
 import { SModalNewComponent } from './Componentes/Porfolio/skill/s-modal-new/s-modal-new.component';
-import { PorfolioComponent } from './Componentes/Porfolio/porfolio/porfolio.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AcercaComponent,
-    AModalEditComponent,
-    AModalDeleteComponent,
+
     EducacionComponent,
     EModalEditComponent,
     EModalDeleteComponent,
@@ -48,9 +43,7 @@ import { PorfolioComponent } from './Componentes/Porfolio/porfolio/porfolio.comp
     CModalDeleteComponent,
     CModalNewComponent,
     ELaboralComponent,
-    LModalEditComponent,
-    LModalDeleteComponent,
-    LModalNewComponent,
+
     EncabezadoComponent,
     EnModalEditComponent,
     EnModalDeleteComponent,
@@ -62,8 +55,8 @@ import { PorfolioComponent } from './Componentes/Porfolio/porfolio/porfolio.comp
     SkillComponent,
     SModalEditComponent,
     SModalDeleteComponent,
-    SModalNewComponent,
-    PorfolioComponent
+    SModalNewComponent
+
   ],
   imports: [
     BrowserModule,

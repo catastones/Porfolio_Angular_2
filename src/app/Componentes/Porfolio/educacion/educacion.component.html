@@ -1,1 +1,38 @@
-<p>educacion works!</p>
+<section>
+        <article>
+            <div class="card card-borde mb-1" >
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">   
+                        <h5 class="card-title">Educaciòn</h5>
+                        <a class="m-1" href="#"><i class="fa-solid fa-plus"></i></a>       
+                    </div>
+                  <ul>
+                      <li *ngFor= "let educa of educacionList">
+                          <div class="d-flex justify-content-between m-3">
+                            <div class="d-flex">
+                              <img class="rounded float-start img-logo m-3" [src]="educa.imagen" alt="">
+                                <div class="px-2">
+                                    <h6 class="card-title">{{educa.escuela}}</h6>
+                                    <span class="card-text"><small>{{educa.titulo}}</small></span>
+                                    <p class="card-text text-muted"> 
+                                       {{educa.inicio}} - {{educa.fin}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <a class="m-1" href="#"> <i class="fa-solid fa-pen"></i></a>
+                                <a class="m-1" href="#"> <i class="fa-solid fa-trash"></i></a>
+                            </div>
+                          </div>
+
+                      </li>
+                  </ul>
+                  
+                 
+                </div>
+                <app-cursos></app-cursos>
+                
+            </div>
+        </article>
+        </section>
+
