@@ -1,0 +1,88 @@
+{
+    "id": 23,
+    "nombre": "Cristian David",
+    "apellido": "Alderete",
+    "telefono": "1141722937",
+    "email": "calderete094@gmail.com",
+    "localidad": "San Rafael",
+    "provincia": "Mendoza",
+    "url_img_perfil": "https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/1366_2000.jpeg",
+    "url_img_portada": "https://i.pinimg.com/564x/f0/5f/57/f05f5780fa38961f39add65d759c1668.jpg",
+    "link_github": "https://github.com/catastones/Porfolio_angular",
+    "link_linkedin": "https://www.linkedin.com/feed/",
+    "acerca": "Desarrolladora",
+    "experiencias": [
+        {
+            "id": 48,
+            "puesto": "Técnico de sistemas",
+            "empresa": "HEXING-TSI Tecno Staff S.A.U",
+            "tareas": "Administrador de sistemas AMI (Configuración - Telemedición de medidores inteligentes - Automatización de tareas).Desarrollo de aplicaciones para configuración de medidores inteligentes de energía eléctrica.Principales clientes: Edenor – Edelap – Eden -Epec",
+            "fecha_inicio": "2020-02-01T00:00:00.000+00:00",
+            "fecha_final": "2022-04-01T00:00:00.000+00:00",
+            "url_img_logo": "https://scontent.fafa1-1.fna.fbcdn.net/v/t1.6435-9/48372057_307095879906374_2347885670980124672_n.png?stp=cp0_dst-png_p64x64&_nc_cat=110&ccb=1-5&_nc_sid=85a577&efg=eyJpIjoidCJ9&_nc_eui2=AeEnCjlXwjVsV1x0hB5fqXIv-BJ8jzj5Kan4EnyPOPkpqWlfWZ64quCsYE6BGxty5NKQMv4Ur36bzR8_lpfwuBoi&_nc_ohc=16m4BWG_7CEAX-h2iiT&_nc_ht=scontent.fafa1-1.fna&oh=00_AT-3Taefav2Rsw2yor0Wf3iRQGYwTkgwfSmOmnIeySc6TA&oe=628F5A7D",
+            "typejob": {
+                "id": 1,
+                "type_empleo": "full time"
+            }
+        },
+        {
+            "id": 49,
+            "puesto": "Analista experto Back Office - Operaciones",
+            "empresa": "Veragi S.R.L",
+            "tareas": "Coordinar las tareas de Técnicos en planta e interior del país.Confección de los informes, análisis de reportes e indicadores de gestión.Asistencia en Logística y distribución, control de stock.Administración de la base de datos de la empresa.Diseño y actualización de los procesos aplicados en el sector. Seguimiento de reclamos hasta su resolución.",
+            "fecha_inicio": "2006-10-01T00:00:00.000+00:00",
+            "fecha_final": "2019-02-01T00:00:00.000+00:00",
+            "url_img_logo": "https://1000marcas.net/wp-content/uploads/2020/03/logo-American-Express-500x281.png",
+            "typejob": {
+                "id": 1,
+                "type_empleo": "full time"
+            }
+        }
+    ],
+    "educacion": [
+        {
+            "id": 47,
+            "establecimiento": "UTN San Rafael",
+            "carrera": "Técnico superior en programación",
+            "fecha_inicio": "2022-03-01T00:00:00.000+00:00",
+            "fecha_final": "2022-04-01T00:00:00.000+00:00",
+            "url_logo": "https://www.frlp.utn.edu.ar/sites/default/files/inline-images/simbolo0.png",
+            "estado": {
+                "id": 2,
+                "estado": "Completo"
+            }
+        }
+    ],
+    "cursos": [
+        {
+            "id": 46,
+            "establecimiento": "Ministerio de Desarrollo Productivo de la Nación y la Cámara de la Industria Argentina del Software (CESSI)",
+            "certificacion": "Argentina Programa 'Sé Programar'",
+            "fecha_inicio": "2021-06-01T00:00:00.000+00:00",
+            "fecha_final": "2021-10-26T00:00:00.000+00:00",
+            "url_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4ha_uQQyoIddvgLdfi3pTZ7W__SauetzX-DXRvOPkX8BgZbyfnd2Ko4cRESrPu9jVx00&usqp=CAU",
+            "estado": {
+                "id": 2,
+                "estado": "Completo"
+            }
+        }
+    ],
+    "skills": [
+        {
+            "id": 51,
+            "habilidad": "Diseño Audiovisual",
+            "porcentaje": 80
+        }
+    ],
+    "proyectos": [
+        {
+            "id": 50,
+            "nombre_proyecto": "StoneRead",
+            "descripcion": "Aplicación para configurar medidores de energía eléctrica",
+            "fecha": "2021-10-01T00:00:00.000+00:00",
+            "link_proyecto": "",
+            "url_img": ""
+        }
+    ],
+    "fecha_nacimiento": "1982-02-26T00:00:00.000+00:00"
+    }

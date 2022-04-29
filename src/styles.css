@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+.contenedor-foto {
+  /* position: absolute; */
+  width: 100%;
+
+}
+
+
+.image-portada {
+  /* position: absolute;
+    z-index: 1; */
+
+  height: 200px;
+}
+
+
+
+.img-foto {
+  /* 4x4*/
+  position: absolute;
+  width: 100px;
+  border-radius: 50%;
+  z-index: 2;
+  margin-top: 150px;
+  margin-left: 25px;
+}
+
+.i-narv {
+  text-decoration: none;
+  color: white;
+}
+
+.portada_data {
+  margin-top: 25px;
+}
+
+.card-borde {
+  border-radius: 30px;
+}
+
+.img-logo {
+  height: 50px;
+}
+
+a i {
+  text-decoration: none;
+  color: #000000;
+}
+
+li {
+  list-style: none;
+}
+
+.bar-width {
+  width: 700px;
+}
+
+@media only screen and (min-width: 600px) {
+
+  /* For tablets: */
+  .bar-width {
+    width: 400px;
+  }
+
+}
+
+@media only screen and (min-width: 860px) {
+
+  /* For desktop: */
+  .bar-width {
+    width: 700px;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

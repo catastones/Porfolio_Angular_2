@@ -16,4 +16,8 @@ export class PorfolioDataService {
   obtenerEducacionJson(): Observable<any> {
     return this.http.get('./assets/data/educacion.json');
   }
+
+  obtenerDataPersona(): Observable<any> {
+    return this.http.get('./assets/data/dataPersona.json');
+  }
 }
