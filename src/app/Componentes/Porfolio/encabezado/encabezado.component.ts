@@ -10,12 +10,15 @@ export class EncabezadoComponent implements OnInit {
 
   constructor(private datosporfolio: PorfolioDataService) { }
   datos: any;
+
   ngOnInit(): void {
 
-    this.datosporfolio.obtenerDataJson().subscribe(data => {
+
+
+    this.datosporfolio.obtenerDataPersona().subscribe(data => {
 
       this.datos = data;
-      console.log(this.datos.Persona.apellido);
+      console.log(this.datos);
 
     });
   }

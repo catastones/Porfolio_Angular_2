@@ -9,11 +9,11 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 export class EducacionComponent implements OnInit {
 
   constructor(private datosporfolio: PorfolioDataService) { }
-  educacionList: any;
+  Educacion: any;
   ngOnInit(): void {
-    this.datosporfolio.obtenerEducacionJson().subscribe(data => {
-      this.educacionList = data.education;
-      console.log(this.educacionList.education[0].escuela);
+    this.datosporfolio.obtenerDataPersona().subscribe(data => {
+      this.Educacion = data.educacion;
+
     })
   }
 

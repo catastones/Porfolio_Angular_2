@@ -1,17 +1,17 @@
    <section>
     <div class="card card-borde mb-1 ">
        
-         <img [src]="datos.Persona.image_background_header" class="card-img-top image-portada" alt="...">
+         <img [src]="datos.url_img_portada" class="card-img-top image-portada" alt="...">
 
-         <img class="img-fluid img-foto" src="../../../assets/img/Cristian_4x4.png" alt="">
+         <img class="img-fluid img-foto" [src]="datos.url_img_perfil" alt="">
          
         <div class="card-body portada_data ">
         
-        <h5 class="card-title">{{datos.Persona.nombres}} {{datos.Persona.apellido}}</h5>
-        <span class="card-text">{{datos.Persona.ocupacion}}</span>
+        <h5 class="card-title">{{datos.nombre}}  {{datos.apellido}}</h5>
+        <span class="card-text">{{datos.ocupacion}}</span>
         <br>
         <!-- <p class="card-text"></p> -->
-        <span class="card-text"><small class="text-muted">San Rafael - Mendoza</small></span>
+        <span class="card-text"><small class="text-muted">{{datos.localidad}} - {{datos.provincia}}</small></span>
         <a class="m-3" href="#"><small>Información de contacto</small></a>
         <!-- <p class="card-text"><small class="text-muted">San Rafael - Mendoza</small></p> -->
         <div class="mt-3">   

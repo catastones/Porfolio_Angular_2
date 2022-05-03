@@ -3,19 +3,24 @@
             <div class="card card-borde mb-1" >
                 <div class="card-body">
                     <div class="d-flex justify-content-between">   
-                        <h5 class="card-title">Educaciòn</h5>
+                        <h5 class="card-title">Educación</h5>
                         <a class="m-1" href="#"><i class="fa-solid fa-plus"></i></a>       
                     </div>
                   <ul>
-                      <li *ngFor= "let educa of educacionList">
+                      <li *ngFor= "let educa of Educacion">
                           <div class="d-flex justify-content-between m-3">
                             <div class="d-flex">
-                              <img class="rounded float-start img-logo m-3" [src]="educa.imagen" alt="">
+                              <img class="rounded float-start img-logo m-3" [src]="educa.url_logo" alt="">
                                 <div class="px-2">
-                                    <h6 class="card-title">{{educa.escuela}}</h6>
-                                    <span class="card-text"><small>{{educa.titulo}}</small></span>
+                                    <h6 class="card-title">{{educa.establecimiento}}</h6>
+                                    <span class="card-text">{{educa.carrera}}</span>
+                                        <br>
+                                    <span class="card-text text-muted">{{educa.estado.estado}}</span>
                                     <p class="card-text text-muted"> 
-                                       {{educa.inicio}} - {{educa.fin}}
+                                        <small>
+                                       {{educa.fecha_inicio |date :'dd/MM/yyyy'}} - {{educa.fecha_final |date :'dd/MM/yyyy'}}
+                                        </small>  
+                                            
                                     </p>
                                 </div>
                             </div>

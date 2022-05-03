@@ -4,15 +4,18 @@
                         <a class="m-1" href="#"><i class="fa-solid fa-plus"></i></a>       
                     </div> 
                     <ul>
-                        <li>
+                        <li *ngFor="let curso of Cursos">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex">
-                              <img class="rounded float-start img-logo" src="./src/arg_p.png" alt="">
+                              <img class="rounded float-start img-logo" [src]="curso.url_logo" alt="">
                                 <div class="px-2">
-                                    <h6 class="card-title">Argentina Programa</h6>
-                                    <span class="card-text"><small>#YoProgramo</small></span>
+                                    <h6 class="card-title">{{curso.certificacion}}</h6>
+                                    <span class="card-text"><small>{{curso.establecimiento}}</small></span>
+                                    <br>
+                                    <span class="card-text text-muted"><small>{{curso.estado.estado}}</small></span>
                                     <p class="card-text text-muted"> 
-                                       11/2021 - En curso
+                                      <small> {{curso.fecha_inicio |date:'dd/MM/yyyy'}} - {{curso.fecha_final |date:'dd/MM/yyyy'}}</small>
+                                      
                                     </p>
                                 </div>
                             </div>

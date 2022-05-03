@@ -8,9 +8,15 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 })
 export class ELaboralComponent implements OnInit {
 
+  Experiencias: any;
+
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
+    this.datosporfolio.obtenerDataPersona().subscribe(data => {
+      this.Experiencias = data.experiencias;
+
+    });
   }
 
 }

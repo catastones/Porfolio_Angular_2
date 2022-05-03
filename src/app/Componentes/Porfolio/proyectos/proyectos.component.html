@@ -7,15 +7,21 @@
                         <a class="m-1" href="#"><i class="fa-solid fa-plus"></i></a>       
                     </div>
                   <ul>
-                      <li>
+                      <li *ngFor= "let proyecto of Proyectos">
                           <div class="d-flex">
                               
                             <div class="px-2">
-                                <h6 class="card-title">Nombre</h6>
+                                <div class="d-flex justify-content-between" >
+                                <h6 class="card-title">{{proyecto.nombre_proyecto}}</h6>
+                                <a [href]="proyecto.link"> link al proyecto</a>
+                                </div>
                                 
                                 <p class="card-text text-muted"> 
-                                    Descripciòn
+                                    {{proyecto.descripcion}}
                                 </p>
+                                <span class="card-text text-muted" >
+                                  <small> {{proyecto.fecha | date:'dd/MM/yyyy'}} </small>
+                                </span>
                             </div>
                             <div class="d-flex">
                                 <a class="m-1" href="#"> <i class="fa-solid fa-pen"></i></a>
