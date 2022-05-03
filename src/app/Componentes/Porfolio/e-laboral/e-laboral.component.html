@@ -8,7 +8,7 @@
                     </div>
 
                   <ul>
-                      <li *ngFor="let experiencia of Experiencias">
+                      <li *ngFor="let experiencia of Experiencias ,let i = index">
                           
                           
                           <div class="d-flex mt-3">
@@ -27,6 +27,7 @@
                                 </span>
                             </div>
                             <div class="d-flex">
+                                <app-lmodal-delete [id]="i.toString()"></app-lmodal-delete>
                                 <a class="m-1" href="#"> <i class="fa-solid fa-pen"></i></a>
                                 <a class="m-1" href="#"> <i class="fa-solid fa-trash"></i></a>
                             </div>
