@@ -9,6 +9,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 export class ELaboralComponent implements OnInit {
 
   Experiencias: any;
+  entidad: string = "experiencia";
 
   constructor(private datosporfolio: PorfolioDataService) { }
 

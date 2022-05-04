@@ -7,7 +7,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 })
 export class SkillComponent implements OnInit {
   Skills: any;
-
+  entidad: string = "skills";
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {

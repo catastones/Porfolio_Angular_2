@@ -8,6 +8,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 })
 export class ProyectosComponent implements OnInit {
   Proyectos: any;
+  entidad: string = "proyectos";
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {

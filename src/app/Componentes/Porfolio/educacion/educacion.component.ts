@@ -7,6 +7,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
+  entidad: string = "educacion";
 
   constructor(private datosporfolio: PorfolioDataService) { }
   Educacion: any;

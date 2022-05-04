@@ -27,8 +27,9 @@ import { SModalEditComponent } from './Componentes/Porfolio/skill/s-modal-edit/s
 import { SModalDeleteComponent } from './Componentes/Porfolio/skill/s-modal-delete/s-modal-delete.component';
 import { SModalNewComponent } from './Componentes/Porfolio/skill/s-modal-new/s-modal-new.component';
 import { PorfolioComponent } from './Componentes/Porfolio/porfolio.component';
-import { LModalDeleteComponent } from './Componentes/Porfolio/e-laboral/lmodal-delete/lmodal-delete.component';
+
 import { HttpClientModule } from '@angular/common/http';
+import { ModalDeleteComponent } from './Componentes/Porfolio/Modals/modal-delete/modal-delete.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     CModalDeleteComponent,
     CModalNewComponent,
     ELaboralComponent,
-    LModalDeleteComponent,
+
     EncabezadoComponent,
     EnModalEditComponent,
     EnModalDeleteComponent,
@@ -57,7 +58,8 @@ import { HttpClientModule } from '@angular/common/http';
     SModalEditComponent,
     SModalDeleteComponent,
     SModalNewComponent,
-    PorfolioComponent
+    PorfolioComponent,
+    ModalDeleteComponent
 
   ],
   imports: [
