@@ -30,7 +30,8 @@ import { PorfolioComponent } from './Componentes/Porfolio/porfolio.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ModalDeleteComponent } from './Componentes/Porfolio/Modals/modal-delete/modal-delete.component';
-
+import { ModalnewComponent } from './Componentes/Porfolio/Modals/modalnew/modalnew.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,14 +60,16 @@ import { ModalDeleteComponent } from './Componentes/Porfolio/Modals/modal-delete
     SModalDeleteComponent,
     SModalNewComponent,
     PorfolioComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    ModalnewComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
