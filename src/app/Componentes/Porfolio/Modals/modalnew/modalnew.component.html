@@ -4,18 +4,24 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="formExpe"
+    >
         <div class="d-flex justify-content-around">
             <div class="mb-3 ">
-            <label for="dateOfBirth">Puesto</label>
+            <label for="puesto">Puesto</label>
             <div class="input-group">
-                <input id="dateOfBirth" class="form-control"  name="puesto" >
+                <input id="puesto"                 
+                class="form-control"  
+                name="puesto" 
+                formControlName="puesto" >
             </div>
             </div>
             <div class="mb-3">
-            <label for="dateOfBirth">Empresa</label>
-            <div class="input-group form-control-lg">
-                <input id="dateOfBirth" class="form-control "  name="empresa" >
+            <label for="empresa">Empresa</label>
+            <div class="input-group ">
+                <input id="empresa" class="form-control "  name="empresa" 
+                formControlName="empresa"
+                >
      
             </div>
             </div>            
@@ -23,17 +29,24 @@
 
         <div class="d-flex justify-content-around">
              <div class="mb-3">
-        <label for="dateOfBirth">Fecha Inicio</label>
-        <div class="input-group">
-          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+        <label for="fecha_inicio">Fecha Inicio</label>
+        <input type="datetime-local"
+        class="form-control" 
+        id="fecha_inicio" 
+        name="fecha_inicio"  
+        formControlName="fecha_inicio">
         </div>
-        </div>
+        <div >
+    
+    </div>
          <div class="mb-3">
-        <label for="dateOfBirth">Fecha final</label>
+        <label for="fecha_final">Fecha final</label>
         <div class="input-group">
-          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker">
-          <button class="btn btn-outline-secondary calendar" (click)="dp1.toggle()" type="button"></button>
+           <input type="datetime-local"
+        class="form-control" 
+        id="fecha_final" 
+        name="fecha_final"  
+        formControlName="fecha_final">
         </div>
         </div>
 
@@ -41,18 +54,34 @@
         </div>
                 <div class="form-group mb-3">
             <label for="tareas">Tareas</label>
-            <textarea class="form-control" id="tareas" rows="3"></textarea>
+            <textarea class="form-control" id="tareas" rows="3"
+            formControlName="tareas"
+            ></textarea>
         </div>
          <div class="form-group">
             <label for="logo"> Logo empresa </label>
-            <input type="file" class="form-control-file" id="logo">
+            <input type="file" class="form-control-file" id="logo"
+            formControlName="url_img_logo"
+            >
         </div>
-       
+          <div class="form-group">
+           <select class="form-select" 
+           aria-label="Default select example" 
+           formControlName="typejob">
+              <option *ngFor="let types of types_job" [ngValue]="types">
+                {{ types.tipos_empleo }}
+              </option>
+          </select>
+        </div>
+        
+         
+      
     </form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="savedata(entidad);modal.close('Save click') ">Save</button>
     <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+ 
   </div>
 </ng-template>
 
@@ -77,5 +106,5 @@
   </div>
 </ng-template>
 
-<button class="btn btn-light" (click)="open(content)"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-light" (click)="open(content)"><i class="fa-solid fa-plus"></i></button>
 

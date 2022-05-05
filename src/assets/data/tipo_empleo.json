@@ -1,0 +1,17 @@
+  [ {
+        "id": 1,
+        "type_empleo": "full time"
+    },
+     {
+        "id": 2,
+        "type_empleo": "part time"
+    },
+         {
+        "id": 3,
+        "type_empleo": "freelance"
+    },
+            {
+        "id": 4,
+        "type_empleo": "Relación de dependencia"
+    }
+]
