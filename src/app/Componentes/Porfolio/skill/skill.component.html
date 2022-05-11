@@ -1,10 +1,10 @@
 <section>
         <article>
             <div class="card card-borde mb-1">
-                <div class="card-body">
-                      <div class="d-flex justify-content-between">   
+                <div class="card-body ">
+                      <div class="d-flex justify-content-between mb-1">   
                         <h5 class="card-title">Skills</h5>
-                        <a class="m-1" href="#"><i class="fa-solid fa-plus"></i></a>       
+                        <app-modalnew [entidad]="entidad"></app-modalnew>      
                     </div>
                  <ul>
                      <li *ngFor="let skill of Skills,let i = index">

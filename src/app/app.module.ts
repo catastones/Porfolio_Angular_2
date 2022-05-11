@@ -31,7 +31,7 @@ import { PorfolioComponent } from './Componentes/Porfolio/porfolio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalDeleteComponent } from './Componentes/Porfolio/Modals/modal-delete/modal-delete.component';
 import { ModalnewComponent } from './Componentes/Porfolio/Modals/modalnew/modalnew.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +69,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

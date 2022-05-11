@@ -4,7 +4,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">   
                         <h5 class="card-title">Educación</h5>
-                        <a class="m-1" href="#"><i class="fa-solid fa-plus"></i></a>       
+                        <app-modalnew [entidad] = "entidad" ></app-modalnew>       
                     </div>
                   <ul>
                       <li *ngFor="let educa of Educacion ,let i = index">

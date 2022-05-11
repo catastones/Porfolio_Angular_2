@@ -24,4 +24,7 @@ export class PorfolioDataService {
   getTypeJob(): Observable<any> {
     return this.http.get('./assets/data/tipo_empleo.json');
   }
+  getEstado(): Observable<any> {
+    return this.http.get('./assets/data/estado.json');
+  }
 }

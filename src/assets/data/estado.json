@@ -1,0 +1,17 @@
+  [ {
+        "id": 1,
+        "estado": "En Curso"
+    },
+     {
+        "id": 2,
+        "estado": "Completo"
+    },
+         {
+        "id": 3,
+        "estado": "Incompleto"
+    },
+            {
+        "id": 4,
+        "estado": "Pronto a retomar"
+    }
+]
