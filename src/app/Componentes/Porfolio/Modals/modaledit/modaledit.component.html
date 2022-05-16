@@ -1,0 +1,418 @@
+<ng-template  #conten let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar Experiencia</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formExpe">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+              <div class="mb-3 ">
+            <label for="puesto">Puesto</label>
+            <div class="input-group">
+                <input id="puesto"                 
+                class="form-control"  
+                name="puesto" 
+                formControlName="puesto" >
+            </div>
+            </div>
+          </div>
+          <div class="col">
+             <div class="mb-3">
+            <label for="empresa">Empresa</label>
+            <div class="input-group ">
+                <input id="empresa" class="form-control "name="empresa" 
+                formControlName="empresa" >     
+            </div>
+            </div> 
+          </div>        
+        </div>
+      </div>
+      <div class="container">
+           <div class="row">
+             <div class="col">
+                <div class="mb-3">
+                  <label for="fecha_inicio">Fecha Inicio</label>
+                  <input type="date"
+                  class="form-control" 
+                  id="fecha_inicio" 
+                  name="fecha_inicio"  
+                  formControlName="fecha_inicio" 
+                  >
+                </div>
+             </div>
+             <div class="col">
+                <div class="mb-3">
+                  <label for="fecha_final">Fecha final</label>
+                  <div class="input-group">
+                     <input type="date"
+                  class="form-control" 
+                  id="fecha_final" 
+                  name="fecha_final"  
+                  formControlName="fecha_final"
+                 
+                  >
+                  </div>
+                </div>
+             </div>            
+           </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+               <label for="logo"> Logo empresa </label>
+               <input type="file" class="form-control-file" id="logo"
+               formControlName="url_img_logo"
+               
+               >
+            </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                <label for="typejob"> Tipo de empleo </label>
+               <select class="form-select" 
+               id="typejob"
+               aria-label="Default select example" 
+               formControlName="typejob">
+               <option [defaultSelected]=true  >{{Persona.experiencias[id].typejob.type_empleo}}</option>
+                  <option *ngFor="let types of types_job" [ngValue]="types" [(ngModel)]="Persona.experiencias[id].types_job.type_empleo">
+                    {{ types.type_empleo }}
+                  </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+                <div class="form-group mb-3">
+            <label for="tareas">Tareas</label>
+            <textarea class="form-control" id="tareas" rows="3"
+            formControlName="tareas"
+            
+            ></textarea>
+        </div>
+        
+         
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click') ">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="savedata(entidad);modal.close('Save click') ">Save</button>
+  </div>
+</ng-template>
+
+<ng-template  #educacion let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar Educacion</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formEduca">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+              <div class="mb-3 ">
+            <label for="establecimiento">Establecimiento</label>
+            <div class="input-group">
+                <input id="establecimiento"                 
+                class="form-control"  
+                name="establecimiento" 
+                formControlName="establecimiento" >
+            </div>
+            </div>
+          </div>
+          <div class="col">
+             <div class="mb-3">
+            <label for="carrera">Carrera</label>
+            <div class="input-group ">
+                <input id="carrera" class="form-control "  name="carrera" 
+                formControlName="carrera">     
+            </div>
+            </div> 
+          </div>        
+        </div>
+      </div>
+      <div class="container">
+           <div class="row">
+             <div class="col">
+                <div class="mb-3">
+                  <label for="fecha_inicio_e">Fecha Inicio</label>
+                  <input type="date"
+                  class="form-control" 
+                  id="fecha_inicio_e" 
+                  name="fecha_inicio_e"  
+                  formControlName="fecha_inicio_e">
+                </div>
+             </div>
+             <div class="col">
+                <div class="mb-3">
+                  <label for="fecha_final_e">Fecha final</label>
+                  <div class="input-group">
+                     <input type="date"
+                  class="form-control" 
+                  id="fecha_final_e" 
+                  name="fecha_final_e"  
+                  formControlName="fecha_final_e">
+                  </div>
+                </div>
+             </div>            
+           </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+               <label for="url_logo"> Logo Institución </label>
+               <input type="file" class="form-control-file" id="url_logo"
+               formControlName="url_logo">
+            </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                <label for="estado"> Estado </label>
+               <select class="form-select" 
+               id="estado"
+               aria-label="Default select example" 
+               formControlName="estado">
+                  <option [defaultSelected]=true  >{{Persona.educacion[id].estado.estado}}</option>
+                  <option *ngFor="let estado of estados" [ngValue]="estado">
+                    {{estado.estado }}                                           
+                  </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+       <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click') ">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="savedata(entidad);modal.close('Save click') ">Save</button>
+  </div>
+</ng-template>
+
+<ng-template  #cursos let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar Curso</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formCurso">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+              <div class="mb-3 ">
+            <label for="establecimiento">Establecimiento</label>
+            <div class="input-group">
+                <input id="establecimiento"                 
+                class="form-control"  
+                name="establecimiento" 
+                formControlName="establecimiento" >
+            </div>
+            </div>
+          </div>
+          <div class="col">
+             <div class="mb-3">
+            <label for="certificacion">Certificación</label>
+            <div class="input-group ">
+                <input id="certificacion" class="form-control "  name="certificacion" 
+                formControlName="certificacion">     
+            </div>
+            </div> 
+          </div>        
+        </div>
+      </div>
+      <div class="container">
+           <div class="row">
+             <div class="col">
+                <div class="mb-3">
+                  <label for="fecha_inicio_c">Fecha Inicio</label>
+                  <input type="date"
+                  class="form-control" 
+                  id="fecha_inicio_c" 
+                  name="fecha_inicio_c"  
+                  formControlName="fecha_inicio_c">
+                </div>
+             </div>
+             <div class="col">
+                <div class="mb-3">
+                  <label for="fecha_final_c">Fecha final</label>
+                  <div class="input-group">
+                     <input type="date"
+                  class="form-control" 
+                  id="fecha_final_c" 
+                  name="fecha_final_c"  
+                  formControlName="fecha_final_c">
+                  </div>
+                </div>
+             </div>            
+           </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+               <label for="url_logo"> Logo Institución </label>
+               <input type="file" class="form-control-file" id="url_logo"
+               formControlName="url_logo">
+            </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                <label for="estado"> Estado </label>
+               <select class="form-select" 
+               id="estado"
+               aria-label="Default select example" 
+               formControlName="estado">
+                <option [defaultSelected]=true  >{{Persona.cursos[id].estado.estado}}</option>
+                  <option *ngFor="let estado of estados" [ngValue]="estado">
+                    {{estado.estado }}                                           
+                  </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+       <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click') ">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="savedata(entidad);modal.close('Save click') ">Save</button>
+  </div>
+</ng-template>
+
+<ng-template  #skills let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar Skill</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formSkill">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+              <div class="mb-3 ">
+            <label for="habilidad">Skill</label>
+            <div class="input-group">
+                <input id="habilidad"                 
+                class="form-control"  
+                name="habilidad" 
+                formControlName="habilidad" >
+            </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="container">
+           <div class="row">
+             <div class="col">
+                <div class="mb-3">
+           <label for="porcentaje" class="form-label">Nivel de Habilidad</label>
+          <input type="range" class="form-range" min="0" max="100" step="5" id="porcentaje"
+          formControlName="porcentaje" >
+          <span>{{skillPorcentaje}} %</span>
+          
+                </div>
+                
+             </div>
+                 
+           </div>
+      </div>
+
+       
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+       <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click') ">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="savedata(entidad);modal.close('Save click') ">Save</button>
+  </div>
+</ng-template>
+
+<ng-template  #proyectos let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar Proyecto</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formProyecto">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+              <div class="mb-3 ">
+            <label for="nombre_proyecto">Nombre de Proyecto</label>
+            <div class="input-group">
+                <input id="nombre_proyecto"                 
+                class="form-control"  
+                name="nombre_proyecto" 
+                formControlName="nombre_proyecto" >
+            </div>
+            </div>
+          </div>
+          <div class="col">
+             <div class="mb-3">
+            <label for="link_proyecto">Link al proyecto</label>
+            <div class="input-group ">
+                <input id="link_proyecto" class="form-control "  name="link_proyecto" 
+                formControlName="link_proyecto">     
+            </div>
+            </div> 
+          </div>        
+        </div>
+      </div>
+      <div class="container">
+           <div class="row">
+             <div class="col">
+                <div class="mb-3">
+                  <label for="fecha_p">Fecha del proyecto</label>
+                  <input type="datetime-local"
+                  class="form-control" 
+                  id="fecha_p" 
+                  name="fecha_p"  
+                  formControlName="fecha_p">
+                </div>
+             </div>
+             <div class="col">
+            <div class="form-group">
+               <label for="url_img"> Imagen del proyecto </label>
+               <input type="file" class="form-control-file" id="url_img"
+               formControlName="url_img">
+            </div>
+             </div>            
+           </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+                <div class="form-group mb-3">
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" rows="3"
+            formControlName="descripcion"
+            ></textarea>
+        </div>
+          </div>
+
+        </div>
+      </div>
+       
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+       <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click') ">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="savedata(entidad);modal.close('Save click') ">Save</button>
+  </div>
+</ng-template>
+
+<button *ngIf="entidad=='experiencia'" class="btn btn-light me-1" (click)="open(conten)"><i class="fa-solid fa-pen"></i></button>
+<button *ngIf="entidad=='educacion'" class="btn btn-light me-1" (click)="open(educacion)"><i class="fa-solid fa-pen"></i></button>
+<button *ngIf="entidad=='cursos'" class="btn btn-light me-1" (click)="open(cursos)"><i class="fa-solid fa-pen"></i></button>
+<button *ngIf="entidad=='skills'" class="btn btn-light me-1" (click)="open(skills)"><i class="fa-solid fa-pen"></i></button>
+<button *ngIf="entidad=='proyectos'" class="btn btn-light me-1" (click)="open(proyectos)"><i class="fa-solid fa-pen"></i></button>

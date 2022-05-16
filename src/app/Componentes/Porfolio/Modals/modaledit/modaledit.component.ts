@@ -1,19 +1,20 @@
+
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
-
 @Component({
-  selector: 'app-modalnew',
-  templateUrl: './modalnew.component.html',
-  styleUrls: ['./modalnew.component.css'],
+  selector: 'app-modaledit',
+  templateUrl: './modaledit.component.html',
+  styleUrls: ['./modaledit.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
+export class ModaleditComponent implements OnInit {
 
-export class ModalnewComponent implements OnInit {
-
-  constructor(private modalService: NgbModal, private datosporfolio: PorfolioDataService) {
+  constructor(private modalService: NgbModal,
+    private datosporfolio: PorfolioDataService,
+    private readonly fb: FormBuilder) {
 
     this.value = Date();
   }
@@ -24,6 +25,7 @@ export class ModalnewComponent implements OnInit {
   closeResult = '';
   value: any;
   @Input() entidad: string = "0";
+  @Input() id: number = 0;
 
   formExpe = new FormGroup({
     id: new FormControl('', Validators.required),
@@ -35,6 +37,8 @@ export class ModalnewComponent implements OnInit {
     url_img_logo: new FormControl('', Validators.required),
     typejob: new FormControl('', Validators.required)
   });
+  //formEduca!: FormGroup;
+
   formEduca = new FormGroup({
     id: new FormControl('', Validators.required),
     establecimiento: new FormControl('', Validators.required),
@@ -68,6 +72,15 @@ export class ModalnewComponent implements OnInit {
     url_img: new FormControl('', Validators.required)
   });
   ngOnInit(): void {
+    this.datosporfolio.obtenerDataPersona().subscribe(data => {
+      this.Persona = data;
+      this.onSetValue_experiencia();
+      this.onSetValue_educa();
+      this.onSetValue_cursos();
+      this.onSetValue_skills();
+      this.onSetValue_proyectos();
+      // console.log(this.Persona.skills[this.id].habilidad)
+    });
     this.datosporfolio.getEstado().subscribe(data => {
       this.estados = data;
 
@@ -76,14 +89,12 @@ export class ModalnewComponent implements OnInit {
       this.types_job = data;
 
     });
-    this.datosporfolio.obtenerDataPersona().subscribe(data => {
-      this.Persona = data;
-    });
+
+
   }
+
   open(content: any) {
     this.modalService.open(content, { size: 'lg' })
-
-
   }
   savedata(entidad: string) {
     switch (entidad) {
@@ -104,8 +115,63 @@ export class ModalnewComponent implements OnInit {
         break;
     }
     console.log(this.Persona);
-    console.log("click.ok");
+    console.log("click.Saveok");
 
   }
+  onSetValue_educa(): void {
+    this.formEduca.patchValue({
+      id: this.id,
+      establecimiento: this.Persona.educacion[this.id].establecimiento,
+      carrera: this.Persona.educacion[this.id].carrera,
+      fecha_inicio_e: this.Persona.educacion[this.id].fecha_inicio,
+      fecha_final_e: this.Persona.educacion[this.id].fecha_final,
+      url_logo: this.Persona.educacion[this.id].url_logo,
+      estado: this.Persona.educacion[this.id].estado.estado
+    });
+  }
+  onSetValue_cursos(): void {
+    this.formCurso.patchValue({
+      id: this.id,
+      establecimiento: this.Persona.cursos[this.id].establecimiento,
+      certificacion: this.Persona.cursos[this.id].certificacion,
+      fecha_inicio_c: this.Persona.cursos[this.id].fecha_inicio,
+      fecha_final_c: this.Persona.cursos[this.id].fecha_final,
+      url_logo: this.Persona.cursos[this.id].url_logo,
+      estado: this.Persona.cursos[this.id].estado.estado
+    });
+  }
+  onSetValue_skills(): void {
+    this.formSkill.patchValue({
+      id: this.id,
+      habilidad: this.Persona.skills[this.id].habilidad,
+      porcentaje: this.Persona.skills[this.id].porcentaje
+    });
+  }
+  onSetValue_proyectos(): void {
+    this.formProyecto.patchValue({
+      id: this.id,
+      nombre_proyecto: this.Persona.proyectos[this.id].nombre_proyecto,
+      descripcion: this.Persona.proyectos[this.id].descripcion,
+      fecha_p: this.Persona.proyectos[this.id].fecha,
+      link_proyecto: this.Persona.proyectos[this.id].link_proyecto,
+      url_img: this.Persona.proyectos[this.id].url_img
+    });
+  }
+  onSetValue_experiencia(): void {
+    this.formExpe.patchValue({
+      id: this.id,
+      puesto: this.Persona.experiencias[this.id].puesto,
+      empresa: this.Persona.experiencias[this.id].empresa,
+      fecha_inicio: this.Persona.experiencias[this.id].fecha_inicio,
+      fecha_final: this.Persona.experiencias[this.id].fecha_final,
+      tareas: this.Persona.experiencias[this.id].tareas,
+      url_img_logo: this.Persona.experiencias[this.id].url_img_logo,
+      typejob: this.Persona.experiencias[this.id].typejob.type_empleo
+    });
+  }
+  get skillPorcentaje() {
+    return this.formSkill.get('porcentaje')!.value;
+  }
+
 
 }

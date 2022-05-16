@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalDeleteComponent } from './Componentes/Porfolio/Modals/modal-delete/modal-delete.component';
 import { ModalnewComponent } from './Componentes/Porfolio/Modals/modalnew/modalnew.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModaleditComponent } from './Componentes/Porfolio/Modals/modaledit/modaledit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CModalDeleteComponent,
     CModalNewComponent,
     ELaboralComponent,
-
     EncabezadoComponent,
     EnModalEditComponent,
     EnModalDeleteComponent,
@@ -61,7 +61,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SModalNewComponent,
     PorfolioComponent,
     ModalDeleteComponent,
-    ModalnewComponent
+    ModalnewComponent,
+    ModaleditComponent
 
   ],
   imports: [
