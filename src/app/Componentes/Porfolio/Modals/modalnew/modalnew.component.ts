@@ -107,5 +107,7 @@ export class ModalnewComponent implements OnInit {
     console.log("click.ok");
 
   }
-
+  get skillPorcentaje() {
+    return this.formSkill.get('porcentaje')!.value;
+  }
 }

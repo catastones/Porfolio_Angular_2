@@ -77,7 +77,7 @@
                aria-label="Default select example" 
                formControlName="typejob">
                <option [defaultSelected]=true  >{{Persona.experiencias[id].typejob.type_empleo}}</option>
-                  <option *ngFor="let types of types_job" [ngValue]="types" [(ngModel)]="Persona.experiencias[id].types_job.type_empleo">
+                  <option *ngFor="let types of types_job" [ngValue]="types" >
                     {{ types.type_empleo }}
                   </option>
               </select>

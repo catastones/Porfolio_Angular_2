@@ -37,8 +37,6 @@ export class ModaleditComponent implements OnInit {
     url_img_logo: new FormControl('', Validators.required),
     typejob: new FormControl('', Validators.required)
   });
-  //formEduca!: FormGroup;
-
   formEduca = new FormGroup({
     id: new FormControl('', Validators.required),
     establecimiento: new FormControl('', Validators.required),
@@ -99,23 +97,44 @@ export class ModaleditComponent implements OnInit {
   savedata(entidad: string) {
     switch (entidad) {
       case "experiencia":
-        this.Persona.experiencias.push(this.formExpe.value);
+        this.Persona.experiencias[this.id].puesto = this.formExpe.value.puesto;
+        this.Persona.experiencias[this.id].empresa = this.formExpe.value.empresa;
+        this.Persona.experiencias[this.id].fecha_inicio = this.formExpe.value.fecha_inicio;
+        this.Persona.experiencias[this.id].fecha_final = this.formExpe.value.fecha_final;
+        this.Persona.experiencias[this.id].tareas = this.formExpe.value.tareas;
+        this.Persona.experiencias[this.id].url_img_logo = this.formExpe.value.url_img_logo;
+        this.Persona.experiencias[this.id].typejob = this.formExpe.value.typejob;
         break;
       case "educacion":
-        this.Persona.educacion.push(this.formEduca.value)
+        this.Persona.educacion[this.id].establecimiento = this.formEduca.value.establecimiento;
+        this.Persona.educacion[this.id].carrera = this.formEduca.value.carrera;
+        this.Persona.educacion[this.id].fecha_inicio = this.formEduca.value.fecha_inicio_e;
+        this.Persona.educacion[this.id].fecha_final = this.formEduca.value.fecha_final_e;
+        this.Persona.educacion[this.id].url_logo = this.formEduca.value.url_logo;
+        this.Persona.educacion[this.id].estado = this.formEduca.value.estado;
         break;
       case "cursos":
-        this.Persona.cursos.push(this.formCurso.value)
+        this.Persona.cursos[this.id].establecimiento = this.formCurso.value.establecimiento;
+        this.Persona.cursos[this.id].certificacion = this.formCurso.value.certificacion;
+        this.Persona.cursos[this.id].fecha_inicio = this.formCurso.value.fecha_inicio_c;
+        this.Persona.cursos[this.id].fecha_final = this.formCurso.value.fecha_final_c;
+        this.Persona.cursos[this.id].url_logo = this.formCurso.value.url_logo;
+        this.Persona.cursos[this.id].estado = this.formCurso.value.estado;
         break;
       case "skills":
-        this.Persona.skills.push(this.formSkill.value)
+        this.Persona.skills[this.id].habilidad = this.formSkill.value.habilidad;
+        this.Persona.skills[this.id].porcentaje = this.formSkill.value.porcentaje;
         break;
       case "proyectos":
-        this.Persona.proyectos.push(this.formProyecto.value)
+        this.Persona.proyectos[this.id].nombre_proyecto = this.formProyecto.value.nombre_proyecto;
+        this.Persona.proyectos[this.id].descripcion = this.formProyecto.value.descripcion;
+        this.Persona.proyectos[this.id].fecha = this.formProyecto.value.fecha_p;
+        this.Persona.proyectos[this.id].link_proyecto = this.formProyecto.value.link_proyecto;
+        this.Persona.proyectos[this.id].url_img = this.formProyecto.value.url_img;
         break;
     }
     console.log(this.Persona);
-    console.log("click.Saveok");
+    console.log("click.editOk");
 
   }
   onSetValue_educa(): void {
