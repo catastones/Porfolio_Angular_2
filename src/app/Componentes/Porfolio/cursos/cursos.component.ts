@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
 @Component({
@@ -9,14 +10,21 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 export class CursosComponent implements OnInit {
   Cursos: any;
   entidad: string = "cursos";
+  suscription: Subscription | undefined;
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
+    this.getCursos();
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getCursos(); }
+    );
+
+  }
+  getCursos() {
     this.datosporfolio.obtenerDataPersona().subscribe(data => {
       this.Cursos = data.cursos;
-      console.log(this.Cursos);
-    });
 
+    });
   }
 
 }

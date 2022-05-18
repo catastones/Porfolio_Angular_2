@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 @Component({
   selector: 'app-skill',
@@ -8,13 +9,24 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 export class SkillComponent implements OnInit {
   Skills: any;
   entidad: string = "skills";
+  suscription: Subscription | undefined;
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
+    this.getSkills();
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getSkills(); }
+    );
+
+  }
+  ngOnDestroy(): void {
+    this.suscription?.unsubscribe();
+    console.log('Observable destruido');
+  }
+  getSkills() {
     this.datosporfolio.obtenerDataPersona().subscribe(
       data => {
         this.Skills = data.skills;
-
       }
     );
   }

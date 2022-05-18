@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
 @Component({
@@ -10,10 +11,17 @@ export class ELaboralComponent implements OnInit {
 
   Experiencias: any;
   entidad: string = "experiencia";
+  suscription: Subscription | undefined;
 
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
+    this.getExperiencias();
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getExperiencias(); }
+    );
+  }
+  getExperiencias() {
     this.datosporfolio.obtenerDataPersona().subscribe(data => {
       this.Experiencias = data.experiencias;
 

@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
 
+
 @Component({
   selector: 'app-modalnew',
   templateUrl: './modalnew.component.html',
@@ -23,6 +24,7 @@ export class ModalnewComponent implements OnInit {
   Persona: any;
   closeResult = '';
   value: any;
+  data: any;
   @Input() entidad: string = "0";
 
   formExpe = new FormGroup({
@@ -103,11 +105,17 @@ export class ModalnewComponent implements OnInit {
         this.Persona.proyectos.push(this.formProyecto.value)
         break;
     }
-    console.log(this.Persona);
+    // console.log(this.Persona);
     console.log("click.ok");
+    this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
+      console.log(data);
+
+    });
+
 
   }
   get skillPorcentaje() {
     return this.formSkill.get('porcentaje')!.value;
   }
+
 }
