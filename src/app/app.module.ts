@@ -18,6 +18,7 @@ import { ModalnewComponent } from './Componentes/Porfolio/Modals/modalnew/modaln
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModaleditComponent } from './Componentes/Porfolio/Modals/modaledit/modaledit.component';
 import { ModalinfoeditComponent } from './Componentes/Porfolio/Modals/modalinfoedit/modalinfoedit.component';
+import { LoginComponent } from './Componentes/Porfolio/navbar/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { ModalinfoeditComponent } from './Componentes/Porfolio/Modals/modalinfoe
     ModalDeleteComponent,
     ModalnewComponent,
     ModaleditComponent,
-    ModalinfoeditComponent
+    ModalinfoeditComponent,
+    LoginComponent
 
   ],
   imports: [
