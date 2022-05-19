@@ -3,6 +3,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-modaledit',
@@ -15,7 +16,6 @@ export class ModaleditComponent implements OnInit {
   constructor(private modalService: NgbModal,
     private datosporfolio: PorfolioDataService,
     private readonly fb: FormBuilder) {
-
     this.value = Date();
   }
   porc: string = "0";
@@ -26,7 +26,7 @@ export class ModaleditComponent implements OnInit {
   value: any;
   @Input() entidad: string = "0";
   @Input() id: number = 0;
-
+  suscription: Subscription | undefined;
   formExpe = new FormGroup({
     id: new FormControl('', Validators.required),
     puesto: new FormControl('', Validators.required),
@@ -70,15 +70,9 @@ export class ModaleditComponent implements OnInit {
     url_img: new FormControl('', Validators.required)
   });
   ngOnInit(): void {
-    this.datosporfolio.obtenerDataPersona().subscribe(data => {
-      this.Persona = data;
-      this.onSetValue_experiencia();
-      this.onSetValue_educa();
-      this.onSetValue_cursos();
-      this.onSetValue_skills();
-      this.onSetValue_proyectos();
-      // console.log(this.Persona.skills[this.id].habilidad)
-    });
+    this.getPersona();
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getPersona(); });
     this.datosporfolio.getEstado().subscribe(data => {
       this.estados = data;
 
@@ -87,12 +81,40 @@ export class ModaleditComponent implements OnInit {
       this.types_job = data;
 
     });
-
-
   }
 
+  getPersona() {
+    this.datosporfolio.obtenerDataPersona().subscribe(data => {
+      this.Persona = data;
+      this.clickSetValue(this.entidad);
+    });
+  }
+  openModal(content: any) {
+
+    this.open(content);
+
+  }
   open(content: any) {
-    this.modalService.open(content, { size: 'lg' })
+    this.modalService.open(content, { size: 'lg' });
+  }
+  clickSetValue(entidad: string): void {
+    switch (entidad) {
+      case "experiencia":
+        this.onSetValue_experiencia();
+        break;
+      case "educacion":
+        this.onSetValue_educa();
+        break;
+      case "cursos":
+        this.onSetValue_cursos();
+        break;
+      case "skills":
+        this.onSetValue_skills();
+        break;
+      case "proyectos":
+        this.onSetValue_proyectos();
+        break;
+    }
   }
   savedata(entidad: string) {
     switch (entidad) {
@@ -133,8 +155,12 @@ export class ModaleditComponent implements OnInit {
         this.Persona.proyectos[this.id].url_img = this.formProyecto.value.url_img;
         break;
     }
-    console.log(this.Persona);
-    console.log("click.editOk");
+    //console.log(this.Persona);
+    //console.log("click.editOk");
+    this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
+      console.log(data);
+
+    });
 
   }
   onSetValue_educa(): void {
@@ -165,6 +191,7 @@ export class ModaleditComponent implements OnInit {
       habilidad: this.Persona.skills[this.id].habilidad,
       porcentaje: this.Persona.skills[this.id].porcentaje
     });
+    console.log(this.id);
   }
   onSetValue_proyectos(): void {
     this.formProyecto.patchValue({
@@ -188,6 +215,7 @@ export class ModaleditComponent implements OnInit {
       typejob: this.Persona.experiencias[this.id].typejob.type_empleo
     });
   }
+
   get skillPorcentaje() {
     return this.formSkill.get('porcentaje')!.value;
   }

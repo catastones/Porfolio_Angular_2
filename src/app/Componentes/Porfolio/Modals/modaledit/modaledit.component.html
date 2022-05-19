@@ -293,7 +293,7 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="formSkill">
+    <form [formGroup]="formSkill"  >
       <div class="container">
         <div class="row">
           <div class="col">
@@ -414,5 +414,5 @@
 <button *ngIf="entidad=='experiencia'" class="btn btn-light me-1" (click)="open(conten)"><i class="fa-solid fa-pen"></i></button>
 <button *ngIf="entidad=='educacion'" class="btn btn-light me-1" (click)="open(educacion)"><i class="fa-solid fa-pen"></i></button>
 <button *ngIf="entidad=='cursos'" class="btn btn-light me-1" (click)="open(cursos)"><i class="fa-solid fa-pen"></i></button>
-<button *ngIf="entidad=='skills'" class="btn btn-light me-1" (click)="open(skills)"><i class="fa-solid fa-pen"></i></button>
+<button *ngIf="entidad=='skills'" class="btn btn-light me-1" (click)="openModal(skills)"><i class="fa-solid fa-pen"></i></button>
 <button *ngIf="entidad=='proyectos'" class="btn btn-light me-1" (click)="open(proyectos)"><i class="fa-solid fa-pen"></i></button>

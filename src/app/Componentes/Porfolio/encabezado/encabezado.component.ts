@@ -10,7 +10,9 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 export class EncabezadoComponent implements OnInit {
 
   constructor(private datosporfolio: PorfolioDataService) { }
-  datos: any;
+  datos: any | undefined;
+  imgPortada: string = "";
+  imgPerfil: string = "";
   suscription: Subscription | undefined;
 
   ngOnInit(): void {
@@ -22,6 +24,8 @@ export class EncabezadoComponent implements OnInit {
   getDataPersona() {
     this.datosporfolio.obtenerDataPersona().subscribe(data => {
       this.datos = data;
+      this.imgPortada = data.url_img_portada;
+      this.imgPerfil = data.url_img_perfil;
     });
   }
 }

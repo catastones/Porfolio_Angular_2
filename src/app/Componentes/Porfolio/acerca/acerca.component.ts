@@ -7,16 +7,22 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 })
 export class AcercaComponent implements OnInit {
 
-  Persona: any;
+
+  private _acerca: string = "";
+  public get acerca(): string {
+    return this._acerca;
+  }
+  public set acerca(value: string) {
+    this._acerca = value;
+  }
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
     this.datosporfolio.obtenerDataPersona().subscribe(
       data => {
-        this.Persona = data;
 
+        this.acerca = data.url_img_portada;
       }
-
     );
   }
 

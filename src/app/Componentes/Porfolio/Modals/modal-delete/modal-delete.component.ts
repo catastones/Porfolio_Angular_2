@@ -69,6 +69,9 @@ export class ModalDeleteComponent implements OnInit {
         break;
     }
     console.log(this.Persona);
+    this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
+      console.log(data);
+    });
 
   }
 
