@@ -10,10 +10,11 @@
         <h5 class="card-title">{{datos.nombre}}  {{datos.apellido}}</h5>
         <span class="card-text">{{datos.ocupacion}}</span>
         <br>
-        <!-- <p class="card-text"></p> -->
+        
         <span class="card-text"><small class="text-muted">{{datos.localidad}} - {{datos.provincia}}</small></span>
-        <a class="m-3" href="#"><small>Información de contacto</small></a>
-        <!-- <p class="card-text"><small class="text-muted">San Rafael - Mendoza</small></p> -->
+        <app-modalinfoedit [Persona] ='datos'></app-modalinfoedit>
+        
+        
         <div class="mt-3">   
             <button class="btn btn-primary m-1">interes</button>
             <button class="btn btn-primary m-1">interes</button>

@@ -21,7 +21,7 @@ export class ModaleditComponent implements OnInit {
   porc: string = "0";
   types_job: any;
   estados: any;
-  Persona: any;
+  Persona: any | undefined;
   closeResult = '';
   value: any;
   @Input() entidad: string = "0";
@@ -140,7 +140,7 @@ export class ModaleditComponent implements OnInit {
   onSetValue_educa(): void {
     this.formEduca.patchValue({
       id: this.id,
-      establecimiento: this.Persona.educacion[this.id].establecimiento,
+      establecimiento!: this.Persona.educacion[this.id].establecimiento,
       carrera: this.Persona.educacion[this.id].carrera,
       fecha_inicio_e: this.Persona.educacion[this.id].fecha_inicio,
       fecha_final_e: this.Persona.educacion[this.id].fecha_final,
@@ -151,7 +151,7 @@ export class ModaleditComponent implements OnInit {
   onSetValue_cursos(): void {
     this.formCurso.patchValue({
       id: this.id,
-      establecimiento: this.Persona.cursos[this.id].establecimiento,
+      establecimiento!: this.Persona.cursos[this.id].establecimiento,
       certificacion: this.Persona.cursos[this.id].certificacion,
       fecha_inicio_c: this.Persona.cursos[this.id].fecha_inicio,
       fecha_final_c: this.Persona.cursos[this.id].fecha_final,
