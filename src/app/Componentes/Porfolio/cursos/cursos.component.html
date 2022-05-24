@@ -6,9 +6,12 @@
                     </div> 
                     <ul>
                         <li *ngFor="let curso of Cursos,let i = index">
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex">
-                              <img class="rounded float-start img-logo" [src]="curso.url_logo" alt="">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-1">
+                                <img class="rounded float-start img-logo" [src]="curso.url_logo" alt="">
+                              </div>
+                              <div class="col-9">
                                 <div class="px-2">
                                     <h6 class="card-title">{{curso.certificacion}}</h6>
                                     <span class="card-text"><small>{{curso.establecimiento}}</small></span>
@@ -16,13 +19,25 @@
                                     <span class="card-text text-muted"><small>{{curso.estado.estado}}</small></span>
                                     <p class="card-text text-muted"> 
                                       <small> {{curso.fecha_inicio |date:'dd/MM/yyyy'}} - {{curso.fecha_final |date:'dd/MM/yyyy'}}</small>
-                                      
                                     </p>
                                 </div>
+
+                              </div>
+                              <div class="col">
+                                <div  class="d-flex justify-content-end">
+                                  <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>
+                                  <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
+                                </div>
+                                </div>
+                            </div>
+                          </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                              
+                                
                             </div>
                             <div class="d-flex">
-                               <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>
-                                <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
+                               
                             </div>
                           </div>
 

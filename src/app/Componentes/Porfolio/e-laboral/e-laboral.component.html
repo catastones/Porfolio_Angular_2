@@ -1,21 +1,18 @@
 <section>
         <article>
-       <div class="card card-borde mb-1" >
+            <div class="card card-borde mb-1" >
                 <div class="card-body">
                     <div class="d-flex justify-content-between">   
                         <h5 class="card-title ms-1">Experiencia Laboral</h5>
                         <app-modalnew [entidad] = "entidad" ></app-modalnew>       
                     </div>
-
                   <ul class="mt-3">
-                      <li *ngFor="let experiencia of Experiencias ,let i = index">
-                          
+                      <li *ngFor="let experiencia of Experiencias ,let i = index">                         
                         <div class="container ">
                             <div class="row">
-                                <div class="col-1">
-                                    <div >
+                                <div class="col-1">                                   
                                     <img class="rounded float-start img-logo m-3" [src]="experiencia.url_img_logo" alt="">
-                                    </div>
+                                    
                                 </div>
                                 <div class="col-9">
                                           <div class="px-2">
