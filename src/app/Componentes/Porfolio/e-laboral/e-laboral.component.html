@@ -3,43 +3,50 @@
        <div class="card card-borde mb-1" >
                 <div class="card-body">
                     <div class="d-flex justify-content-between">   
-                        <h5 class="card-title">Experiencia Laboral</h5>
+                        <h5 class="card-title ms-1">Experiencia Laboral</h5>
                         <app-modalnew [entidad] = "entidad" ></app-modalnew>       
                     </div>
 
-                  <ul>
+                  <ul class="mt-3">
                       <li *ngFor="let experiencia of Experiencias ,let i = index">
                           
-                          
-                          <div class="d-flex mt-3">                              
-                              <img class="rounded float-start img-logo" [src]="experiencia.url_img_logo" alt="">
-                            <div class="px-2">
-                                <h6 class="card-title">{{experiencia.puesto}}</h6>
-                                <span class="card-text"><small>{{experiencia.empresa}}</small></span>
-                                <p class="card-text text-muted"> 
-                                   {{ experiencia.tareas}}
-                                </p>
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="d-flex justify-content-center">
+                                    <img class="rounded float-start img-logo" [src]="experiencia.url_img_logo" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                          <div class="px-2">
+                                    <h6 class="card-title">{{experiencia.puesto}}</h6>
+                                    <span class="card-text"><small>{{experiencia.empresa}}</small></span>
+                                    <p class="card-text text-muted"> 
+                                        {{ experiencia.tareas}}
+                                    </p>
                                 <span class="card-text text-muted">
                                     <small>Desde : {{ experiencia.fecha_inicio | date :'dd/MM/yyyy'}} 
                                             - Hasta : {{ experiencia.fecha_final | date :'dd/MM/yyyy'}} 
                                     </small>
                                 </span>
                             </div>
-                            <div class="d-flex">   
-                                <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>                
-                               
-                                 <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
+                                </div>
+                                <div class="col">
+                                     <div class="d-flex justify-content-end">   
+                                        <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>                
+                                        <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
+                                       </div>
+                                </div>
 
-                                                                  
+                                
                             </div>
-                          </div>
-
+                        </div>
                       </li>
                   </ul>
                   
                  
                 </div>                
-            </div>
-        </article>
-    </section>
+         </div>
+    </article>
+</section>
 
