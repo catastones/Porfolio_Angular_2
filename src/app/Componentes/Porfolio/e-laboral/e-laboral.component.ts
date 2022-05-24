@@ -22,6 +22,11 @@ export class ELaboralComponent implements OnInit {
     );
   }
   getExperiencias() {
+    // this.datosporfolio.obtenerDataPersona().subscribe(data => {
+    //   this.Experiencias = data.experiencias;
+
+    // });
+
     this.datosporfolio.obtenerDataPersona().subscribe(data => {
       this.Experiencias = data.experiencias;
 

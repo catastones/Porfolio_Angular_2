@@ -155,8 +155,7 @@ export class ModaleditComponent implements OnInit {
         this.Persona.proyectos[this.id].url_img = this.formProyecto.value.url_img;
         break;
     }
-    //console.log(this.Persona);
-    //console.log("click.editOk");
+
     this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
       console.log(data);
 
@@ -191,7 +190,7 @@ export class ModaleditComponent implements OnInit {
       habilidad: this.Persona.skills[this.id].habilidad,
       porcentaje: this.Persona.skills[this.id].porcentaje
     });
-    console.log(this.id);
+
   }
   onSetValue_proyectos(): void {
     this.formProyecto.patchValue({

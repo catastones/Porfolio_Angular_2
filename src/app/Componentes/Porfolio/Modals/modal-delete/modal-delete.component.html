@@ -1,14 +1,15 @@
 
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+    <h4 class="modal-title" id="modal-basic-title">¿Estás seguro?</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <p>Hello, World! - {{id}} {{entidad}}</p>
+    <p>El siguiente item será eliminado </p>
+    <small>{{data | json}} {{entidad}}</small>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    <button type="button" class="btn btn-outline-danger" (click)="c('Save click')">Cancelar</button>
     <button type="button" class="btn btn-outline-dark" (click)="c('Save click');delete(id,entidad)">Borrar</button>
   </div>
 </ng-template>

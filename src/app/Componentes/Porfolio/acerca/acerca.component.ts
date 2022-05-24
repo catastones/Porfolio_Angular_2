@@ -21,7 +21,7 @@ export class AcercaComponent implements OnInit {
     this.datosporfolio.obtenerDataPersona().subscribe(
       data => {
 
-        this.acerca = data.url_img_portada;
+        this.acerca = data.acerca;
       }
     );
   }
