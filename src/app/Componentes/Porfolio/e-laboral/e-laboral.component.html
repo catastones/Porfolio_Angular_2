@@ -13,8 +13,8 @@
                         <div class="container ">
                             <div class="row">
                                 <div class="col-1">
-                                    <div class="d-flex justify-content-center">
-                                    <img class="rounded float-start img-logo" [src]="experiencia.url_img_logo" alt="">
+                                    <div >
+                                    <img class="rounded float-start img-logo m-3" [src]="experiencia.url_img_logo" alt="">
                                     </div>
                                 </div>
                                 <div class="col-9">
@@ -36,9 +36,7 @@
                                         <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>                
                                         <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
                                        </div>
-                                </div>
-
-                                
+                                </div>                                
                             </div>
                         </div>
                       </li>
