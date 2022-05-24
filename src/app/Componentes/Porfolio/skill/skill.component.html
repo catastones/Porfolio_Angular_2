@@ -8,21 +8,22 @@
                     </div>
                  <ul>
                      <li *ngFor="let skill of Skills,let i = index">
-                          <div class="d-flex justify-content-between">
-                            <div class="d-flex">
+                         <div class="container">
+                             <div class="row">
+                                 <div class="col-10">
+                                     <h6 class="card-title ">{{skill.habilidad}}</h6>
+                                     <ngb-progressbar type="success" [value]="+skill.porcentaje"></ngb-progressbar>
  
-                                <div class="container" >
-                                   
-                                    <h6 class="card-title ">{{skill.habilidad}}</h6>
-                                    <p><ngb-progressbar type="success" [value]="+skill.porcentaje"></ngb-progressbar></p>
+                                 </div>
+                                 <div class="col">
+                                     <div class="d-flex justify-content-end">
+                                          <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>
+                                          <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
+                                     </div>
+                                 </div>
+                             </div>
 
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                 <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>
-                                 <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
-                            </div>
-                          </div>
+                         </div>             
 
                      </li>
                  </ul>
