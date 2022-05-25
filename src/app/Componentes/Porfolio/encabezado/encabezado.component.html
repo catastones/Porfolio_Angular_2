@@ -1,27 +1,25 @@
    <section>
-    <div class="card card-borde mb-1 ">
-       
-         <img  class="card-img-top image-portada" alt="" [src]="imgPortada">
+     <div class="card card-borde mb-1 ">
 
-         <img class="img-fluid img-foto" [src]="imgPerfil" alt="">
-         
-        <div class="card-body portada_data ">
-        
-        <h5 class="card-title">{{datos.nombre }}  {{datos.apellido}}</h5>
-        <span class="card-text">{{datos.ocupacion}}</span>
-        <br>
-        
-        <span class="card-text"><small class="text-muted">{{datos.localidad}} - {{datos.provincia}}</small></span>
-        <app-modalinfoedit [Persona] ='datos'></app-modalinfoedit>
-        
-        
-        <div class="mt-3">   
-            <button class="btn btn-primary m-1">interes</button>
-            <button class="btn btn-primary m-1">interes</button>
-            <button class="btn btn-primary m-1">interes</button>
-        </div>
-        
-        </div>
-    </div>
-    </section>
+       <img class="card-img-top image-portada" alt="" [src]="imgPortada">
 
+       <img class="img-fluid img-foto" [src]="imgPerfil" alt="">
+
+       <div class="card-body portada_data ">
+
+         <h5 class="card-title">{{datos.nombre }} {{datos.apellido}}</h5>
+         <span class="card-text">{{datos.ocupacion}}</span>
+         <br>
+
+         <span class="card-text"><small class="text-muted me-3">{{datos.localidad}} - {{datos.provincia}}</small></span>
+         <app-modalinfoedit [Persona]='datos'></app-modalinfoedit>
+
+
+         <div class="mt-3">
+           <button class="btn btn-secondary m-1">interes</button>
+
+         </div>
+
+       </div>
+     </div>
+   </section>

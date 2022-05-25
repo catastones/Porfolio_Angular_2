@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModaleditComponent } from './Componentes/Porfolio/Modals/modaledit/modaledit.component';
 import { ModalinfoeditComponent } from './Componentes/Porfolio/Modals/modalinfoedit/modalinfoedit.component';
 import { LoginComponent } from './Componentes/Porfolio/navbar/login/login.component';
+import { ModaleditPersoComponent } from './Componentes/Porfolio/Modals/modaledit-perso/modaledit-perso.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { LoginComponent } from './Componentes/Porfolio/navbar/login/login.compon
     ModalnewComponent,
     ModaleditComponent,
     ModalinfoeditComponent,
-    LoginComponent
+    LoginComponent,
+    ModaleditPersoComponent
 
   ],
   imports: [
