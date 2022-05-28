@@ -1,18 +1,17 @@
 <div class="row">
   <div class="col">
     <div ngbDropdown class="d-inline-block">
-      <button type="button" class="btn btn-outline-success" 
-      id="dropdownForm1" display="dynamic" ngbDropdownToggle >Login</button>
+      <button type="button" class="btn btn-outline-success" id="dropdownForm1" display="dynamic"
+        ngbDropdownToggle>Login</button>
       <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="dropdown-menu-end">
-        <form class="px-4 py-3">
+        <form class="px-4 py-3" [formGroup]="formLogin">
           <div class="mb-3">
             <label for="username">Nombre de Usuario</label>
-            <input type="text" class="form-control" id="username" 
-             autocomplete="username">
+            <input type="text" class="form-control" id="username" formControlName="user">
           </div>
           <div class="mb-3">
             <label for="pass">Password</label>
-            <input type="password" class="form-control" id="pass"  autocomplete="current-password">
+            <input type="password" class="form-control" id="pass" formControlName="pass">
           </div>
           <!-- <div class="form-check">
             <input type="checkbox" class="form-check-input" id="dropdownCheck">
@@ -20,7 +19,7 @@
               Remember me
             </label>
           </div> -->
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="sumit" class="btn btn-primary" (click)="sumit()">Sign in</button>
         </form>
         <div class="dropdown-divider"></div>
         <button type="button" ngbDropdownItem>New around here? Sign up</button>
