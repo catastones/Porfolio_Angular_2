@@ -13,11 +13,22 @@
       <li class="list-group-item">Provincia: {{Persona.provincia}}</li>
       <li class="list-group-item">Ocupación: {{Persona.ocupacion}}</li>
       <li class="list-group-item">Fecha de Nacimiento: {{Persona.fecha_nacimiento | date:'dd/MM/yyyy'}}</li>
+      <li class="list-group-item">Linkedin: {{Persona.link_linkedin}}</li>
+      <li class="list-group-item">Github: {{Persona.link_github}}</li>
+      <li class="list-group-item">YuoTube: {{Persona.provincia}}</li>
+      <li class="list-group-item">Twitter: {{Persona.ocupacion}}</li>
+      <li class="list-group-item">Facebook: {{Persona.ocupacion}}</li>
+      <li class="list-group-item">Instagram: {{Persona.ocupacion}}</li>
     </ul>
 
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+  <div class="modal-footer d-flex justify-content-between">
+    <app-modaledit-perso [Persona]="Persona"></app-modaledit-perso>
+    <div class="d-flex justify-content-between">
+
+      <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Cerrar</button>
+    </div>
+
   </div>
 </ng-template>
 <button class="btn btn-link " (click)="open(content)">Información de contacto</button>

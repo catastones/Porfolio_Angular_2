@@ -1,1 +1,145 @@
-<p>modaledit-perso works!</p>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Información de contacto</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formEditPerso">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="nombre">Nombre</label>
+              <div class="input-group">
+                <input id="nombre" class="form-control" name="nombre" formControlName="nombre">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="apellido">Apellido</label>
+              <div class="input-group">
+                <input id="apellido" class="form-control" name="apellido" formControlName="apellido">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="telefono">Telefono</label>
+              <div class="input-group">
+                <input id="telefono" class="form-control" name="telefono" formControlName="telefono">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="email">Email</label>
+              <div class="input-group">
+                <input type="email" id="email" class="form-control" name="email" formControlName="email">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="localidad">Localidad</label>
+              <div class="input-group">
+                <input id="localidad" class="form-control" name="localidad" formControlName="localidad">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="provincia">Provincia</label>
+              <div class="input-group">
+                <input id="provincia" class="form-control" name="provincia" formControlName="provincia">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="ocupacion">Ocupación</label>
+              <div class="input-group">
+                <input id="ocupacion" class="form-control" name="ocupacion" formControlName="ocupacion">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="fecha_nacimiento">Fecha de nacimiento</label>
+              <div class="input-group">
+                <input itype="date" d="fecha_nacimiento" class="form-control" name="fecha_nacimiento"
+                  formControlName="fecha_nacimiento">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="link_github">GitHub</label>
+              <div class="input-group">
+                <input id="link_github" class="form-control" name="link_github" formControlName="link_github">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="link_linkedin">Linkedin</label>
+              <div class="input-group">
+                <input id="link_linkedin" class="form-control" name="link_linkedin" formControlName="link_linkedin">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="link_youtube">YouTube</label>
+              <div class="input-group">
+                <input id="link_youtube" class="form-control" name="link_youtube" formControlName="link_youtube">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="link_tw">Twitter</label>
+              <div class="input-group">
+                <input id="link_tw" class="form-control" name="link_tw" formControlName="link_tw">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="link_facebook">Facebook</label>
+              <div class="input-group">
+                <input id="link_facebook" class="form-control" name="link_facebook" formControlName="link_facebook">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 ">
+              <label for="link_instagram">Instagram</label>
+              <div class="input-group">
+                <input id="link_instagram" class="form-control" name="link_instagram" formControlName="link_instagram">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="editPersona();c('Save click')">Save</button>
+  </div>
+</ng-template>
+<button class="btn btn-light " (click)="open(content)"><i class="fa-solid fa-pen"></i></button>
