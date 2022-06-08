@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { map } from 'rxjs/operators'
 
 import { Observable, Subject, tap } from 'rxjs';
 
@@ -8,14 +8,18 @@ import { Observable, Subject, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class PorfolioDataService {
-
+  headres = new HttpHeaders;
   private _refresh$ = new Subject<void>();// se genara observable para refrescar los componentes ante un cambio de datos
   constructor(private http: HttpClient) {
-
+    this.headres.append('Content-Type', 'application/json');
+    this.headres.append('Authorization', this.getToken());
 
   }
   get refresh$() {
     return this._refresh$;
+  }
+  getToken(): string {
+    return localStorage.getItem('access_token') != null ? localStorage.getItem('access_token')! : "nula";
   }
 
   obtenerDataJson(): Observable<any> {
@@ -26,16 +30,27 @@ export class PorfolioDataService {
     return this.http.get('./assets/data/educacion.json');
   }
 
-  obtenerDataPersona(): Observable<any> {
-    return this.http.get('./assets/data/dataPersona.json');
-  }
-
   // obtenerDataPersona(): Observable<any> {
-  //   return this.http.get('http://localhost:8080/verpersona/23');
+  //   return this.http.get('./assets/data/dataPersona.json');
   // }
 
+  obtenerDataPersona(): Observable<any> {
+    return this.http.get('http://localhost:8080/verpersona/23');
+  }
+
   setDataPersona(Persona: Object): Observable<any> {
-    return this.http.post<Object>('http://localhost:8080/addpersona', Persona)
+    console.log(this.getToken())
+    // const token = localStorage.getItem('access_token');
+    // const httpHeaders = httpHeaders.append('Authorization', this.getToken());
+    let httpHeader: HttpHeaders = new HttpHeaders();
+    httpHeader = httpHeader.append('Authorization', this.getToken())
+
+    // const Headers = new HttpHeaders({
+
+    //   'Authorization': this.getToken()
+    // });
+    console.log(httpHeader)
+    return this.http.post<Object>('http://localhost:8080/addpersona', Persona, { headers: httpHeader })
       .pipe(
         tap(
           () => { this._refresh$.next(); })
@@ -50,9 +65,9 @@ export class PorfolioDataService {
     return this.http.get('./assets/data/estado.json');
   }
 
-  options = {
-    headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-  };
+  // options = {
+  //   headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+  // };
 
 
   login(user: string, password: string): Observable<any> {
@@ -65,6 +80,7 @@ export class PorfolioDataService {
 
     return this.http.post('http://localhost:8080/api/login', body,
       { headers, observe: 'response' })
+
   }
 
 

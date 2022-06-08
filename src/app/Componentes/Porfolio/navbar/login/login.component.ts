@@ -22,8 +22,12 @@ export class LoginComponent implements OnInit {
 
 
     this.datosporfolio.login(this.formLogin.value.user, this.formLogin.value.pass).subscribe(data => {
-      this.user = data;
-      console.log(this.user.body);
+      this.user = data.body;
+
+      if (this.user != null) {
+        localStorage.setItem('access_token', this.user.token)
+        console.log(localStorage.getItem('access_token'))
+      }
     });
   }
 }
