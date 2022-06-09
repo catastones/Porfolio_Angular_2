@@ -13,7 +13,6 @@ export class PorfolioDataService {
   constructor(private http: HttpClient) {
     this.headres.append('Content-Type', 'application/json');
     this.headres.append('Authorization', this.getToken());
-
   }
   get refresh$() {
     return this._refresh$;
@@ -40,23 +39,16 @@ export class PorfolioDataService {
 
   setDataPersona(Persona: Object): Observable<any> {
     console.log(this.getToken())
-    // const token = localStorage.getItem('access_token');
-    // const httpHeaders = httpHeaders.append('Authorization', this.getToken());
+
     let httpHeader: HttpHeaders = new HttpHeaders();
     httpHeader = httpHeader.append('Authorization', this.getToken())
 
-    // const Headers = new HttpHeaders({
-
-    //   'Authorization': this.getToken()
-    // });
     console.log(httpHeader)
     return this.http.post<Object>('http://localhost:8080/addpersona', Persona, { headers: httpHeader })
       .pipe(
         tap(
           () => { this._refresh$.next(); })
       )
-
-
   }
   getTypeJob(): Observable<any> {
     return this.http.get('./assets/data/tipo_empleo.json');
@@ -65,9 +57,6 @@ export class PorfolioDataService {
     return this.http.get('./assets/data/estado.json');
   }
 
-  // options = {
-  //   headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-  // };
 
 
   login(user: string, password: string): Observable<any> {
@@ -80,8 +69,5 @@ export class PorfolioDataService {
 
     return this.http.post('http://localhost:8080/api/login', body,
       { headers, observe: 'response' })
-
   }
-
-
 }
