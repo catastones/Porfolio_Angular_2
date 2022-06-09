@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
@@ -11,19 +11,20 @@ export class EducacionComponent implements OnInit {
   entidad: string = "educacion";
 
   constructor(private datosporfolio: PorfolioDataService) { }
-  Educacion: any;
+  @Input() Educacion: any;
+  @Input() Cursos: any;
   suscription: Subscription | undefined;
   ngOnInit(): void {
-    this.getEducacion();
-    this.suscription = this.datosporfolio.refresh$.subscribe(
-      () => { this.getEducacion(); }
-    );
+    // this.getEducacion();
+    // this.suscription = this.datosporfolio.refresh$.subscribe(
+    //   () => { this.getEducacion(); }
+    // );
   }
-  getEducacion() {
-    this.datosporfolio.obtenerDataPersona().subscribe(data => {
-      this.Educacion = data.educacion;
+  // getEducacion() {
+  //   this.datosporfolio.obtenerDataPersona().subscribe(data => {
+  //     this.Educacion = data.educacion;
 
-    })
-  }
+  //   })
+  // }
 
 }

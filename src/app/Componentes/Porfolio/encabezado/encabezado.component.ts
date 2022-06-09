@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
@@ -10,22 +10,22 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 export class EncabezadoComponent implements OnInit {
 
   constructor(private datosporfolio: PorfolioDataService) { }
-  datos: any | undefined;
+  @Input() datos: any | undefined;
   imgPortada: string = "";
   imgPerfil: string = "";
   suscription: Subscription | undefined;
 
   ngOnInit(): void {
-    this.getDataPersona();
-    this.suscription = this.datosporfolio.refresh$.subscribe(
-      () => { this.getDataPersona(); }
-    );
+    // this.getDataPersona();
+    // this.suscription = this.datosporfolio.refresh$.subscribe(
+    //   () => { this.getDataPersona(); }
+    // );
   }
-  getDataPersona() {
-    this.datosporfolio.obtenerDataPersona().subscribe(data => {
-      this.datos = data;
-      this.imgPortada = data.url_img_portada;
-      this.imgPerfil = data.url_img_perfil;
-    });
-  }
+  // getDataPersona() {
+  //   this.datosporfolio.obtenerDataPersona().subscribe(data => {
+  //     this.datos = data;
+  //     this.imgPortada = data.url_img_portada;
+  //     this.imgPerfil = data.url_img_perfil;
+  //   });
+  // }
 }

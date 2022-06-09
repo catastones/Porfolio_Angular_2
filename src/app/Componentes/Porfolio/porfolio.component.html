@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
-<app-encabezado></app-encabezado>
-<app-acerca></app-acerca>
-<app-e-laboral></app-e-laboral>
-<app-educacion></app-educacion>
-<app-skill></app-skill>
-<app-proyectos></app-proyectos>
+<app-navbar [Redes]="redes"></app-navbar>
+<app-encabezado [datos]="Persona"></app-encabezado>
+<app-acerca [Acerca]="acerca"></app-acerca>
+<app-e-laboral [Experiencias]="experiencias"></app-e-laboral>
+<app-educacion [Educacion]="educacion" [Cursos]="cursos"></app-educacion>
+<app-skill [Skills]="skill"></app-skill>
+<app-proyectos [Proyectos]="proyectos"></app-proyectos>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 @Component({
   selector: 'app-acerca',
@@ -7,23 +7,24 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 })
 export class AcercaComponent implements OnInit {
 
+  @Input() Acerca: any
 
-  private _acerca: string = "";
-  public get acerca(): string {
-    return this._acerca;
-  }
-  public set acerca(value: string) {
-    this._acerca = value;
-  }
+  // private _acerca: string = "";
+  // public get acerca(): string {
+  //   return this._acerca;
+  // }
+  // public set acerca(value: string) {
+  //   this._acerca = value;
+  // }
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
-    this.datosporfolio.obtenerDataPersona().subscribe(
-      data => {
+    // this.datosporfolio.obtenerDataPersona().subscribe(
+    //   data => {
 
-        this.acerca = data.acerca;
-      }
-    );
+    //     this.acerca = data.acerca;
+    //   }
+    // );
   }
 
 }

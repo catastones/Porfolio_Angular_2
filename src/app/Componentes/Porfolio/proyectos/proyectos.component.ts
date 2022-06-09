@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
@@ -8,21 +8,21 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
-  Proyectos: any;
+  @Input() Proyectos: any;
   entidad: string = "proyectos";
   suscription: Subscription | undefined;
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
-    this.getProyectos();
-    this.suscription = this.datosporfolio.refresh$.subscribe(
-      () => { this.getProyectos(); }
-    );
+    // this.getProyectos();
+    // this.suscription = this.datosporfolio.refresh$.subscribe(
+    //   () => { this.getProyectos(); }
+    // );
   }
-  getProyectos() {
-    this.datosporfolio.obtenerDataPersona().subscribe(data => {
-      this.Proyectos = data.proyectos;
-    });
-  }
+  // getProyectos() {
+  //   this.datosporfolio.obtenerDataPersona().subscribe(data => {
+  //     this.Proyectos = data.proyectos;
+  //   });
+  // }
 
 }

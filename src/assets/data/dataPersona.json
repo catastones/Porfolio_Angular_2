@@ -8,8 +8,18 @@
     "provincia": "Mendoza",
     "url_img_perfil": "https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/1366_2000.jpeg",
     "url_img_portada": "https://i.pinimg.com/564x/f0/5f/57/f05f5780fa38961f39add65d759c1668.jpg",
-    "link_github": "https://github.com/catastones/Porfolio_angular",
-    "link_linkedin": "https://www.linkedin.com/feed/",
+   
+    "redes" :[
+        {
+            "id":1,
+            "link_github": "https://github.com/catastones/Porfolio_angular",
+            "link_linkedin": "https://www.linkedin.com/feed/",
+            "link_yuotube": "https://www.youtube.com/channel/UCSdP_C-8OmPmjSJXRUHEuvA",
+            "link_twitter":"https://twitter.com/catastones",
+            "link_facebook":"https://www.facebook.com/cristiandavid.alderete",
+            "link_instagram":"https://www.instagram.com/catastones"            
+        }
+    ],
     "acerca": "Desarrolladora",
      "ocupacion": "Full Stack junior",
     "experiencias": [

@@ -5,14 +5,19 @@
          <img src="../../../../assets/img/Logo_ArProg.png" alt="" width="30" height="24"
            class="d-inline-block align-text-top">
          <span class="navbar-brand"> Cristian Alderete </span>
+         <span class="navbar-brand"> a{{Redes.link_github}} </span>
        </div>
 
        <div class="d-flex">
          <!-- <div class=""> -->
          <!-- //"https://www.linkedin.com/feed/" -->
-         <a class="p-2" *ngIf="linkedin" [href]="Persona.link_linkedin"><i class="fa-brands fa-linkedin i-narv"></i></a>
-         <a class="p-2" *ngIf="github" [href]="Persona.link_github"><i
-             class="fa-brands fa-github-square i-narv"></i></a>
+         <a class="p-2" *ngIf="linkedin" [href]="l_linkedin"><i class="fa-brands fa-linkedin i-narv"></i></a>
+         <a class="p-2" *ngIf="github" [href]="Redes.link_github"><i class="fa-brands fa-github-square  i-narv"></i></a>
+         <a class="p-2" *ngIf="twitter" [href]="Redes.link_twitter"><i class="fa-brands fa-twitter i-narv"></i></a>
+         <a class="p-2" *ngIf="youtube" [href]="Redes.link_yuotube"><i class="fa-brands fa-youtube i-narv"></i></a>
+         <a class="p-2" *ngIf="facebook" [href]="Redes.link_facebook"><i class="fa-brands fa-facebook i-narv"></i></a>
+         <a class="p-2" *ngIf="instagram" [href]="Redes.link_instagram"><i
+             class="fa-brands fa-instagram i-narv"></i></a>
          <!-- </div> -->
 
          <div class="ms-3 me-3">

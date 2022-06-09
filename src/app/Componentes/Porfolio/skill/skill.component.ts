@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 @Component({
@@ -7,29 +7,29 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
   styleUrls: ['./skill.component.css']
 })
 export class SkillComponent implements OnInit {
-  Skills: any;
+  @Input() Skills: any;
   entidad: string = "skills";
   suscription: Subscription | undefined;
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
-    this.getSkills();
-    this.suscription = this.datosporfolio.refresh$.subscribe(
-      () => { this.getSkills(); }
-    );
+    // this.getSkills();
+    // this.suscription = this.datosporfolio.refresh$.subscribe(
+    //   () => { this.getSkills(); }
+    // );
 
   }
   ngOnDestroy(): void {
-    this.suscription?.unsubscribe();
-    console.log('Observable destruido');
+    // this.suscription?.unsubscribe();
+    // console.log('Observable destruido');
   }
-  getSkills() {
-    this.datosporfolio.obtenerDataPersona().subscribe(
-      data => {
-        this.Skills = data.skills;
-      }
-    );
-  }
+  // getSkills() {
+  //   this.datosporfolio.obtenerDataPersona().subscribe(
+  //     data => {
+  //       this.Skills = data.skills;
+  //     }
+  //   );
+  // }
   ConvertNumber(porcentaje: any) {
     return parseInt(porcentaje);
   }

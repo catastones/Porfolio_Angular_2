@@ -29,13 +29,13 @@ export class PorfolioDataService {
     return this.http.get('./assets/data/educacion.json');
   }
 
-  // obtenerDataPersona(): Observable<any> {
-  //   return this.http.get('./assets/data/dataPersona.json');
-  // }
-
   obtenerDataPersona(): Observable<any> {
-    return this.http.get('http://localhost:8080/verpersona/23');
+    return this.http.get('./assets/data/dataPersona.json');
   }
+
+  // obtenerDataPersona(): Observable<any> {
+  //   return this.http.get('http://localhost:8080/verpersona/23');
+  // }
 
   setDataPersona(Persona: Object): Observable<any> {
     console.log(this.getToken())
