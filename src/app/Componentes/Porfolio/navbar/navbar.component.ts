@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Subscription } from 'rxjs/internal/Subscription';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
@@ -27,33 +28,34 @@ export class NavbarComponent implements OnInit {
 
 
     // this.getRedSocial();
-    this.suscription = this.datosporfolio.refresh$.subscribe(
-      () => { this.initBool(); }
-    );
+    // this.suscription = this.datosporfolio.refresh$.subscribe(
+    //   () => { this.initBool(); }
+    // );
   }
   // getRedSocial() {
   //   this.datosporfolio.obtenerDataPersona().subscribe(
   //     data => {
-  //       this.Persona = data;
+  //       this.Redes = data.redes;
+  //       console.log(this.Redes.link_linkedin)
   //       this.initBool();
   //     }
   //   );
   // }
-  ngOnDestroy(): void {
-    this.suscription?.unsubscribe();
-    // console.log('Observable destruido');
-  }
+  // ngOnDestroy(): void {
+  //   this.suscription?.unsubscribe();
+  //   // console.log('Observable destruido');
+  // }
   initBool() {
     this.timeoutid = setTimeout(() => {
-      this.linkedin = this.Redes.link_linkedin != "" || this.Redes.link_linkedin != null;
-      this.github = this.Redes.link_github != "" || this.Redes.link_github != null;
-      this.youtube = this.Redes.link_yuotube != "" || this.Redes.link_yuotube != null;
-      this.facebook = this.Redes.link_twitter != "" || this.Redes.link_twitter != null;
-      this.instagram = this.Redes.link_instagram != "" || this.Redes.link_instagram != null;
-      this.twitter = this.Redes.link_twitter != "" || this.Redes.link_twitter != null;
-      this.l_linkedin = this.Redes.link_linkedin;
-      console.log(this.Redes.link_linkedin)
-    }, 1000)
+      this.linkedin = this.Redes.link_linkedin != undefined
+      this.github = this.Redes.link_github != undefined || this.Redes.link_github != null;
+      this.youtube = this.Redes.link_yuotube != undefined || this.Redes.link_yuotube != null;
+      this.facebook = this.Redes.facebook != undefined || this.Redes.facebook != null;
+      this.instagram = this.Redes.link_instagram != undefined || this.Redes.link_instagram != null;
+      this.twitter = this.Redes.link_twitter != undefined || this.Redes.link_twitter != null;
+
+
+    }, 50)
   }
 
 }

@@ -13,12 +13,12 @@
       <li class="list-group-item">Provincia: {{Persona.provincia}}</li>
       <li class="list-group-item">Ocupación: {{Persona.ocupacion}}</li>
       <li class="list-group-item">Fecha de Nacimiento: {{Persona.fecha_nacimiento | date:'dd/MM/yyyy'}}</li>
-      <li class="list-group-item">Linkedin: {{Persona.link_linkedin}}</li>
-      <li class="list-group-item">Github: {{Persona.link_github}}</li>
-      <li class="list-group-item">YuoTube: {{Persona.provincia}}</li>
-      <li class="list-group-item">Twitter: {{Persona.ocupacion}}</li>
-      <li class="list-group-item">Facebook: {{Persona.ocupacion}}</li>
-      <li class="list-group-item">Instagram: {{Persona.ocupacion}}</li>
+      <li class="list-group-item">Linkedin: {{Persona.redes[0].link_linkedin}}</li>
+      <li class="list-group-item">Github: {{Persona.redes[0].link_github}}</li>
+      <li class="list-group-item">YuoTube: {{Persona.redes[0].link_yuotube}}</li>
+      <li class="list-group-item">Twitter: {{Persona.redes[0].link_twitter}}</li>
+      <li class="list-group-item">Facebook: {{Persona.redes[0].link_facebook}}</li>
+      <li class="list-group-item">Instagram: {{Persona.redes[0].link_instagram}}</li>
     </ul>
 
   </div>

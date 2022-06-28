@@ -47,12 +47,12 @@ export class ModaleditPersoComponent implements OnInit {
       provincia: this.Persona.provincia,
       ocupacion: this.Persona.ocupacion,
       fecha_nacimiento: this.Persona.fecha_nacimiento,
-      link_github: this.Persona.link_github,
-      link_linkedin: this.Persona.link_linkedin,
-      link_youtube: this.Persona.link_youtube,
-      link_tw: this.Persona.link_tw,
-      link_facebook: this.Persona.link_facebook,
-      link_instagram: this.Persona.link_instagram
+      link_github: this.Persona.redes[0].link_github,
+      link_linkedin: this.Persona.redes[0].link_linkedin,
+      link_youtube: this.Persona.redes[0].link_yuotube,
+      link_tw: this.Persona.redes[0].link_twitter,
+      link_facebook: this.Persona.redes[0].link_facebook,
+      link_instagram: this.Persona.redes[0].link_instagram
 
     });
   }
@@ -66,12 +66,12 @@ export class ModaleditPersoComponent implements OnInit {
       this.Persona.provincia = this.formEditPerso.value.provincia,
       this.Persona.ocupacion = this.formEditPerso.value.ocupacion,
       this.Persona.fecha_nacimiento = this.formEditPerso.value.fecha_nacimiento,
-      this.Persona.link_github = this.formEditPerso.value.link_github,
-      this.Persona.link_linkedin = this.formEditPerso.value.link_linkedin,
-      this.Persona.link_youtube = this.formEditPerso.value.link_youtube,
-      this.Persona.link_tw = this.formEditPerso.value.link_tw,
-      this.Persona.link_facebook = this.formEditPerso.value.link_facebook,
-      this.Persona.link_instagram = this.formEditPerso.value.link_instagram
+      this.Persona.redes[0].link_github = this.formEditPerso.value.link_github,
+      this.Persona.redes[0].link_linkedin = this.formEditPerso.value.link_linkedin,
+      this.Persona.redes[0].link_yuotube = this.formEditPerso.value.link_youtube,
+      this.Persona.redes[0].link_twitter = this.formEditPerso.value.link_tw,
+      this.Persona.redes[0].link_facebook = this.formEditPerso.value.link_facebook,
+      this.Persona.redes[0].link_instagram = this.formEditPerso.value.link_instagram
     console.log(this.Persona)
     this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
       console.log(data)

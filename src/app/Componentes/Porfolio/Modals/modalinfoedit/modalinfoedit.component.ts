@@ -16,6 +16,7 @@ export class ModalinfoeditComponent implements OnInit {
   @Input() Persona: any | undefined;
   ngOnInit(): void {
   }
+
   open(content: any) {
     this.modalService.open(content, { size: 'lg' });
   }
