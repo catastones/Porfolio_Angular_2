@@ -16,6 +16,16 @@ export class LoginComponent implements OnInit {
   });
   ngOnInit(): void {
   }
+  onSubmit(login: FormGroup) {
+    this.datosporfolio.login(login.value.user, login.value.pass).subscribe(data => {
+      this.user = data.body;
+
+      if (this.user != null) {
+        localStorage.setItem('access_token', this.user.token)
+        console.log(localStorage.getItem('access_token'))
+      }
+    });
+  }
   sumit() {
     // console.log(this.formLogin.value);
     // console.log(this.formLogin.value.pass);

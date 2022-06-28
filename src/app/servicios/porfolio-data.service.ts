@@ -29,22 +29,22 @@ export class PorfolioDataService {
     return this.http.get('./assets/data/educacion.json');
   }
 
-  obtenerDataPersona(): Observable<any> {
-    return this.http.get('./assets/data/dataPersona.json');
-  }
-
   // obtenerDataPersona(): Observable<any> {
-  //   return this.http.get('http://localhost:8080/verpersona/23');
+  //   return this.http.get('./assets/data/dataPersona.json');
   // }
+
+  obtenerDataPersona(): Observable<any> {
+    return this.http.get('/api/verpersona/23');
+  }
 
   setDataPersona(Persona: Object): Observable<any> {
     console.log(this.getToken())
 
     let httpHeader: HttpHeaders = new HttpHeaders();
     httpHeader = httpHeader.append('Authorization', this.getToken())
-
+    httpHeader = httpHeader.append('Access-Control-Allow-Origin', '*')
     console.log(httpHeader)
-    return this.http.post<Object>('http://localhost:8080/addpersona', Persona, { headers: httpHeader })
+    return this.http.post<Object>('/api/addpersona', Persona, { headers: httpHeader })
       .pipe(
         tap(
           () => { this._refresh$.next(); })
