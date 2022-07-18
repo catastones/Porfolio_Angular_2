@@ -43,7 +43,7 @@ export class PorfolioDataService {
     let httpHeader: HttpHeaders = new HttpHeaders();
     httpHeader = httpHeader.append('Authorization', this.getToken())
     httpHeader = httpHeader.append('Access-Control-Allow-Origin', '*')
-    console.log(httpHeader)
+    //console.log(httpHeader)
     return this.http.post<Object>('/api/addpersona', Persona, { headers: httpHeader })
       .pipe(
         tap(

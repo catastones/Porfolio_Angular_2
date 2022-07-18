@@ -41,7 +41,7 @@ export class PorfolioComponent implements OnInit {
         this.skill = this.Persona.skills
         this.proyectos = this.Persona.proyectos
         this.redes = this.Persona.redes[0]
-        console.log(this.redes)
+        //console.log(this.redes)
       }
 
     });

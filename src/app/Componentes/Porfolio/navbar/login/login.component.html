@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <div ngbDropdown class="d-inline-block">
+    <div ngbDropdown #myDrop="ngbDropdown" class="d-inline-block">
       <button type="button" class="btn btn-outline-success" id="dropdownForm1" display="dynamic"
         ngbDropdownToggle>Login</button>
       <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="dropdown-menu-end">
@@ -19,7 +19,7 @@
               Remember me
             </label>
           </div> -->
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" class="btn btn-primary" (click)="myDrop.close();">Sign in</button>
         </form>
         <div class="dropdown-divider"></div>
         <button type="button" ngbDropdownItem>New around here? Sign up</button>

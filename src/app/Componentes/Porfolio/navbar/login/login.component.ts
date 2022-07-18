@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
@@ -19,25 +19,20 @@ export class LoginComponent implements OnInit {
   onSubmit(login: FormGroup) {
     this.datosporfolio.login(login.value.user, login.value.pass).subscribe(data => {
       this.user = data.body;
-
       if (this.user != null) {
         localStorage.setItem('access_token', this.user.token)
         console.log(localStorage.getItem('access_token'))
+      } else {
+        alert("Usuario o Password incorrectos");
       }
-    });
+
+    }
+      , error => { // second parameter is to listen for error
+        console.log(error.statusText);
+        alert('Status: ' + error.status + '   ' +
+          'Type: ' + error.statusText);
+      });
   }
-  sumit() {
-    // console.log(this.formLogin.value);
-    // console.log(this.formLogin.value.pass);
 
 
-    this.datosporfolio.login(this.formLogin.value.user, this.formLogin.value.pass).subscribe(data => {
-      this.user = data.body;
-
-      if (this.user != null) {
-        localStorage.setItem('access_token', this.user.token)
-        console.log(localStorage.getItem('access_token'))
-      }
-    });
-  }
 }
