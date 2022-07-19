@@ -14,6 +14,8 @@ export class ModalinfoeditComponent implements OnInit {
     config.keyboard = false;
   }
   @Input() Persona: any | undefined;
+  @Input() aut: boolean = false;
+
   ngOnInit(): void {
   }
 

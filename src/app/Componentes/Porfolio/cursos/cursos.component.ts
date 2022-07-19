@@ -9,6 +9,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 })
 export class CursosComponent implements OnInit {
   @Input() Cursos: any;
+  @Input() aut: boolean = false;
   entidad: string = "cursos";
   suscription: Subscription | undefined;
   constructor(private datosporfolio: PorfolioDataService) { }

@@ -11,21 +11,14 @@ export class EncabezadoComponent implements OnInit {
 
   constructor(private datosporfolio: PorfolioDataService) { }
   @Input() datos: any | undefined;
+  @Input() aut: boolean = false;
+
   imgPortada: string = "";
   imgPerfil: string = "";
   suscription: Subscription | undefined;
 
   ngOnInit(): void {
-    // this.getDataPersona();
-    // this.suscription = this.datosporfolio.refresh$.subscribe(
-    //   () => { this.getDataPersona(); }
-    // );
+
   }
-  // getDataPersona() {
-  //   this.datosporfolio.obtenerDataPersona().subscribe(data => {
-  //     this.datos = data;
-  //     this.imgPortada = data.url_img_portada;
-  //     this.imgPerfil = data.url_img_perfil;
-  //   });
-  // }
+
 }

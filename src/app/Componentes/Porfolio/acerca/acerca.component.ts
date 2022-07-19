@@ -11,22 +11,11 @@ export class AcercaComponent implements OnInit {
 
   @Input() Acerca: any
   @Input() aut: boolean = false;
-  // private _acerca: string = "";
-  // public get acerca(): string {
-  //   return this._acerca;
-  // }
-  // public set acerca(value: string) {
-  //   this._acerca = value;
-  // }
+
   constructor(private datosporfolio: PorfolioDataService) { }
 
   ngOnInit(): void {
-    // this.datosporfolio.obtenerDataPersona().subscribe(
-    //   data => {
 
-    //     this.acerca = data.acerca;
-    //   }
-    // );
   }
 
 }

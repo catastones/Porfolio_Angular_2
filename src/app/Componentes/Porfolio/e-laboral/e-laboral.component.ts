@@ -10,6 +10,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 export class ELaboralComponent implements OnInit {
 
   @Input() Experiencias: any;
+  @Input() aut: boolean = false;
   entidad: string = "experiencia";
   suscription: Subscription | undefined;
 
@@ -21,16 +22,6 @@ export class ELaboralComponent implements OnInit {
     //   () => { this.getExperiencias(); }
     // );
   }
-  // getExperiencias() {
-  //   // this.datosporfolio.obtenerDataPersona().subscribe(data => {
-  //   //   this.Experiencias = data.experiencias;
 
-  //   // });
-
-  //   this.datosporfolio.obtenerDataPersona().subscribe(data => {
-  //     this.Experiencias = data.experiencias;
-
-  //   });
-  // }
 
 }

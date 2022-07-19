@@ -1,35 +1,35 @@
 <section>
-        <article>
-            <div class="card card-borde mb-1">
-                <div class="card-body ">
-                      <div class="d-flex justify-content-between mb-1">   
-                        <h5 class="card-title">Skills</h5>
-                        <app-modalnew [entidad]="entidad"></app-modalnew>      
-                    </div>
-                 <ul>
-                     <li *ngFor="let skill of Skills,let i = index">
-                         <div class="container">
-                             <div class="row">
-                                 <div class="col-10">
-                                     <h6 class="card-title ">{{skill.habilidad}}</h6>
-                                     <ngb-progressbar type="success" [value]="+skill.porcentaje"></ngb-progressbar>
- 
-                                 </div>
-                                 <div class="col">
-                                     <div class="d-flex justify-content-end">
-                                          <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>
-                                          <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
-                                     </div>
-                                 </div>
-                             </div>
-
-                         </div>             
-
-                     </li>
-                 </ul>
+  <article>
+    <div class="card card-borde mb-1">
+      <div class="card-body ">
+        <div class="d-flex justify-content-between mb-1">
+          <h5 class="card-title">Skills</h5>
+          <app-modalnew *ngIf="aut" [entidad]="entidad"></app-modalnew>
+        </div>
+        <ul>
+          <li *ngFor="let skill of Skills,let i = index">
+            <div class="container">
+              <div class="row">
+                <div class="col-10 mb-3">
+                  <h6 class="card-title ">{{skill.habilidad}}</h6>
+                  <ngb-progressbar type="success" [value]="+skill.porcentaje"></ngb-progressbar>
 
                 </div>
+                <div class="col">
+                  <div *ngIf="aut" class="d-flex justify-content-end">
+                    <app-modaledit [id]="i" [entidad]="entidad"></app-modaledit>
+                    <app-modal-delete [id]="i" [entidad]="entidad"></app-modal-delete>
+                  </div>
+                </div>
+              </div>
 
             </div>
-        </article>
-    </section>
+
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </article>
+</section>

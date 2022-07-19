@@ -1,47 +1,46 @@
     <section>
-        <article>
-               <div class="card card-borde mb-1" >
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">   
-                        <h5 class="card-title">Proyectos</h5>
-                        <app-modalnew [entidad]="entidad"></app-modalnew>       
-                    </div>
-                  <ul>
-                      <li *ngFor="let proyecto of Proyectos,let i = index">
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col-10">
-                                                 <div class="px-2">
-                                <div class="d-flex justify-content-between" >
-                                <h6 class="card-title">{{proyecto.nombre_proyecto}}</h6>
-                                <a [href]="proyecto.link"> link al proyecto</a>
-                                </div>
-                                
-                                <p class="card-text text-muted"> 
-                                    {{proyecto.descripcion}}
-                                </p>
-                                <span class="card-text text-muted" >
-                                  <small> {{proyecto.fecha | date:'dd/MM/yyyy'}} </small>
-                                </span>
-                            </div>     
-                                  </div>
-                                  <div class="col">
-                                     <div class="d-flex justify-content-end">
-                                        <app-modaledit [id]="i" [entidad] = "entidad"></app-modaledit>
-                                        <app-modal-delete [id]="i" [entidad] = "entidad"></app-modal-delete>
-                                
-                                     </div>
-
-                                  </div>
-                              </div>
-                          </div>               
-
-                      </li>
-                  </ul>
-                  
-                 
-                </div>                
+      <article>
+        <div class="card card-borde mb-1">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <h5 class="card-title">Proyectos</h5>
+              <app-modalnew *ngIf="aut" [entidad]="entidad"></app-modalnew>
             </div>
-        </article>
-    </section>
+            <ul>
+              <li *ngFor="let proyecto of Proyectos,let i = index">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-10">
+                      <div class="px-2">
+                        <div class="d-flex justify-content-between">
+                          <h6 class="card-title">{{proyecto.nombre_proyecto}}</h6>
+                          <a [href]="proyecto.link"> link al proyecto</a>
+                        </div>
 
+                        <p class="card-text text-muted">
+                          {{proyecto.descripcion}}
+                        </p>
+                        <span class="card-text text-muted">
+                          <small> {{proyecto.fecha | date:'dd/MM/yyyy'}} </small>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div *ngIf="aut" class="d-flex justify-content-end">
+                        <app-modaledit [id]="i" [entidad]="entidad"></app-modaledit>
+                        <app-modal-delete [id]="i" [entidad]="entidad"></app-modal-delete>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+            </ul>
+
+
+          </div>
+        </div>
+      </article>
+    </section>

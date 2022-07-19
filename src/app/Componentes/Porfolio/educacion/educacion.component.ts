@@ -13,6 +13,7 @@ export class EducacionComponent implements OnInit {
   constructor(private datosporfolio: PorfolioDataService) { }
   @Input() Educacion: any;
   @Input() Cursos: any;
+  @Input() aut: boolean = false;
   suscription: Subscription | undefined;
   ngOnInit(): void {
     // this.getEducacion();

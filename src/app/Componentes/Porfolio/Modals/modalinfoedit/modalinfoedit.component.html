@@ -23,7 +23,7 @@
 
   </div>
   <div class="modal-footer d-flex justify-content-between">
-    <app-modaledit-perso [Persona]="Persona"></app-modaledit-perso>
+    <app-modaledit-perso *ngIf="aut" [Persona]="Persona"></app-modaledit-perso>
     <div class="d-flex justify-content-between">
 
       <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Cerrar</button>
