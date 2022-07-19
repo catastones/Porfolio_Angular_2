@@ -1,5 +1,6 @@
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ResponseI } from 'src/app/Models/responseinterface';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: any;
+
   constructor(private datosporfolio: PorfolioDataService) { }
   formLogin = new FormGroup({
     user: new FormControl('', Validators.required),
@@ -18,10 +19,11 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(login: FormGroup) {
     this.datosporfolio.login(login.value.user, login.value.pass).subscribe(data => {
-      this.user = data.body;
-      if (this.user != null) {
-        localStorage.setItem('access_token', this.user.token)
-        console.log(localStorage.getItem('access_token'))
+      let user: ResponseI = data;
+      if (user.token != null) {
+        localStorage.setItem('access_token', user.token)
+        console.log(localStorage.getItem('access_token'));
+        this.emitAut(user);
       } else {
         alert("Usuario o Password incorrectos");
       }
@@ -34,5 +36,9 @@ export class LoginComponent implements OnInit {
       });
   }
 
-
+  emitAut(user: any) {
+    this.datosporfolio.Autorizacion.emit({
+      data: user.aut
+    })
+  }
 }

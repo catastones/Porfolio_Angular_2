@@ -1,13 +1,16 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { map } from 'rxjs/operators'
-
+import { ResponseI } from '../Models/responseinterface'
 import { Observable, Subject, tap } from 'rxjs';
+//import { EventEmitter } from 'stream';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PorfolioDataService {
+  @Output() Autorizacion: EventEmitter<any> = new EventEmitter();
+
   headres = new HttpHeaders;
   private _refresh$ = new Subject<void>();// se genara observable para refrescar los componentes ante un cambio de datos
   constructor(private http: HttpClient) {
@@ -61,7 +64,7 @@ export class PorfolioDataService {
 
 
 
-  login(user: string, password: string): Observable<any> {
+  login(user: string, password: string): Observable<ResponseI> {
     const body = new HttpParams()
       .set(`usuario`, user)
       .set(`Pass`, password);
@@ -69,7 +72,7 @@ export class PorfolioDataService {
       'Content-Type': 'application/x-www-form-urlencoded'
     });
 
-    return this.http.post('http://localhost:8080/api/login', body,
-      { headers, observe: 'response' })
+    return this.http.post<ResponseI>('http://localhost:8080/api/login', body,
+      { headers })
   }
 }

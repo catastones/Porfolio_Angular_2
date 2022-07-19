@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
-
+import { ResponseI } from 'src/app/Models/responseinterface'
 @Component({
   selector: 'app-porfolio',
   templateUrl: './porfolio.component.html',
@@ -19,10 +19,16 @@ export class PorfolioComponent implements OnInit {
   acerca: any
   redes: any
   suscription: Subscription | undefined;
+  aut: boolean = false;
+
   ngOnInit(): void {
     this.getDataPersona();
+    this.getAut();
     this.suscription = this.datosporfolio.refresh$.subscribe(
-      () => { this.getDataPersona(); }
+      () => { this.getDataPersona() }
+    );
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getAut() }
     );
 
   }
@@ -42,6 +48,17 @@ export class PorfolioComponent implements OnInit {
         this.proyectos = this.Persona.proyectos
         this.redes = this.Persona.redes[0]
         //console.log(this.redes)
+      }
+
+    });
+  }
+  getAut() {
+    this.datosporfolio.Autorizacion.subscribe(data => {
+      console.log("aut");
+      if (data != null) {
+        this.aut = data
+      } else {
+        this.aut = false
       }
 
     });

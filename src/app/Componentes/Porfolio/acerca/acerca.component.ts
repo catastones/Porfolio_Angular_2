@@ -5,10 +5,12 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
   templateUrl: './acerca.component.html',
   styleUrls: ['./acerca.component.css']
 })
+
+
 export class AcercaComponent implements OnInit {
 
   @Input() Acerca: any
-
+  @Input() aut: boolean = false;
   // private _acerca: string = "";
   // public get acerca(): string {
   //   return this._acerca;
