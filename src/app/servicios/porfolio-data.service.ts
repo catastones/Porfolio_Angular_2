@@ -51,10 +51,12 @@ export class PorfolioDataService {
       )
   }
   getTypeJob(): Observable<any> {
-    return this.http.get('./assets/data/tipo_empleo.json');
+
+    return this.http.get('/api/tiposempleos');
   }
   getEstado(): Observable<any> {
-    return this.http.get('./assets/data/estado.json');
+
+    return this.http.get('/api/estadocarrera');
   }
 
 
