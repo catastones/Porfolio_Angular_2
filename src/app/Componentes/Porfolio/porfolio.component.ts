@@ -54,13 +54,14 @@ export class PorfolioComponent implements OnInit {
   }
   getAut() {
     this.datosporfolio.Autorizacion.subscribe(data => {
-      console.log("aut");
+      console.log(data)
       if (data != null) {
-        this.aut = data
+        this.aut = data.data
+
       } else {
         this.aut = false
       }
-
+      console.log("aut es " + this.aut);
     });
   }
 }

@@ -9,7 +9,7 @@ import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  aut: boolean = false;
   constructor(private datosporfolio: PorfolioDataService) { }
   formLogin = new FormGroup({
     user: new FormControl('', Validators.required),
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       let user: ResponseI = data;
       if (user.token != null) {
         localStorage.setItem('access_token', user.token)
-        console.log(localStorage.getItem('access_token'));
+        //console.log(localStorage.getItem('access_token'));
         this.emitAut(user);
       } else {
         alert("Usuario o Password incorrectos");
@@ -39,6 +39,21 @@ export class LoginComponent implements OnInit {
   emitAut(user: any) {
     this.datosporfolio.Autorizacion.emit({
       data: user.aut
-    })
+
+    });
+    this.aut = user.aut;
+  }
+  logout() {
+    let user: any = {
+      id: 0,
+      usuario: null,
+      pass: null,
+      token: null,
+      aut: false,
+      status: null,
+    }
+    localStorage.removeItem("access_token");
+    this.emitAut(user);
+    console.log("logout")
   }
 }

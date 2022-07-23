@@ -84,7 +84,7 @@ export class ModaleditComponent implements OnInit {
   getTypes() {
     this.datosporfolio.getTypeJob().subscribe(data => {
       this.types_job = data;
-      console.log(this.types_job);
+      // console.log(this.types_job);
     });
   }
   getPersona() {
