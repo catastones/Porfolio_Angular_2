@@ -154,12 +154,12 @@ export class ModaleditComponent implements OnInit {
       case "proyectos":
         this.Persona.proyectos[this.id].nombre_proyecto = this.formProyecto.value.nombre_proyecto;
         this.Persona.proyectos[this.id].descripcion = this.formProyecto.value.descripcion;
-        this.Persona.proyectos[this.id].fecha = this.formProyecto.value.fecha_p;
+        this.Persona.proyectos[this.id].fecha = this.setDateJson(this.formProyecto.value.fecha_p);
         this.Persona.proyectos[this.id].link_proyecto = this.formProyecto.value.link_proyecto;
         this.Persona.proyectos[this.id].url_img = this.formProyecto.value.url_img;
         break;
     }
-
+    console.log(this.Persona);
     this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
       console.log(data);
 
@@ -171,8 +171,8 @@ export class ModaleditComponent implements OnInit {
       id: this.id,
       establecimiento!: this.Persona.educacion[this.id].establecimiento,
       carrera: this.Persona.educacion[this.id].carrera,
-      fecha_inicio_e: this.Persona.educacion[this.id].fecha_inicio,
-      fecha_final_e: this.Persona.educacion[this.id].fecha_final,
+      fecha_inicio_e: this.formatDate(this.Persona.educacion[this.id].fecha_inicio),
+      fecha_final_e: this.formatDate(this.Persona.educacion[this.id].fecha_final),
       url_logo: this.Persona.educacion[this.id].url_logo,
       estado: this.Persona.educacion[this.id].estado.estado
     });
@@ -182,8 +182,8 @@ export class ModaleditComponent implements OnInit {
       id: this.id,
       establecimiento!: this.Persona.cursos[this.id].establecimiento,
       certificacion: this.Persona.cursos[this.id].certificacion,
-      fecha_inicio_c: this.Persona.cursos[this.id].fecha_inicio,
-      fecha_final_c: this.Persona.cursos[this.id].fecha_final,
+      fecha_inicio_c: this.formatDate(this.Persona.cursos[this.id].fecha_inicio),
+      fecha_final_c: this.formatDate(this.Persona.cursos[this.id].fecha_final),
       url_logo: this.Persona.cursos[this.id].url_logo,
       estado: this.Persona.cursos[this.id].estado.estado
     });
@@ -201,7 +201,7 @@ export class ModaleditComponent implements OnInit {
       id: this.id,
       nombre_proyecto: this.Persona.proyectos[this.id].nombre_proyecto,
       descripcion: this.Persona.proyectos[this.id].descripcion,
-      fecha_p: this.Persona.proyectos[this.id].fecha,
+      fecha_p: this.formatDate(this.Persona.proyectos[this.id].fecha),
       link_proyecto: this.Persona.proyectos[this.id].link_proyecto,
       url_img: this.Persona.proyectos[this.id].url_img
     });
@@ -211,8 +211,8 @@ export class ModaleditComponent implements OnInit {
       id: this.id,
       puesto: this.Persona.experiencias[this.id].puesto,
       empresa: this.Persona.experiencias[this.id].empresa,
-      fecha_inicio: this.Persona.experiencias[this.id].fecha_inicio,
-      fecha_final: this.Persona.experiencias[this.id].fecha_final,
+      fecha_inicio: this.formatDate(this.Persona.experiencias[this.id].fecha_inicio),
+      fecha_final: this.formatDate(this.Persona.experiencias[this.id].fecha_final),
       tareas: this.Persona.experiencias[this.id].tareas,
       url_img_logo: this.Persona.experiencias[this.id].url_img_logo,
       typejob: this.Persona.experiencias[this.id].typejob.type_empleo
@@ -222,6 +222,20 @@ export class ModaleditComponent implements OnInit {
   get skillPorcentaje() {
     return this.formSkill.get('porcentaje')!.value;
   }
+  private formatDate(date: any) {
+    if (date != null && date.includes('T')) {
+      return date.split('T')[0];
 
+    } else {
+      return null;
+    }
+
+
+  }
+
+  private setDateJson(date: any) {
+    let tail = "T00:00:00.000+00:00"
+    return date + tail;
+  }
 
 }

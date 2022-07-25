@@ -40,7 +40,7 @@ export class PorfolioComponent implements OnInit {
     this.datosporfolio.obtenerDataPersona().subscribe(data => {
       this.Persona = data;
       if (this.Persona != null) {
-        this.acerca = this.Persona.acerca
+
         this.experiencias = this.Persona.experiencias
         this.educacion = this.Persona.educacion
         this.cursos = this.Persona.cursos

@@ -65,7 +65,7 @@ export class ModalnewComponent implements OnInit {
     id: new FormControl('', Validators.required),
     nombre_proyecto: new FormControl('', Validators.required),
     descripcion: new FormControl('', Validators.required),
-    fecha_p: new FormControl('', Validators.required),
+    fecha: new FormControl(),
     link_proyecto: new FormControl('', Validators.required),
     url_img: new FormControl('', Validators.required)
   });
@@ -90,7 +90,10 @@ export class ModalnewComponent implements OnInit {
   savedata(entidad: string) {
     switch (entidad) {
       case "experiencia":
-        this.Persona.experiencias.push(this.formExpe.value);
+        this.Persona.experiencias.push(
+
+          this.formExpe.value
+        );
         break;
       case "educacion":
         this.Persona.educacion.push(this.formEduca.value)
@@ -102,10 +105,14 @@ export class ModalnewComponent implements OnInit {
         this.Persona.skills.push(this.formSkill.value)
         break;
       case "proyectos":
-        this.Persona.proyectos.push(this.formProyecto.value)
+        this.formProyecto.value.fecha_p = this.setDateJson(this.formProyecto.value.fecha_p);
+
+        this.Persona.proyectos.push(
+          this.formProyecto.value
+        )
         break;
     }
-    // console.log(this.Persona);
+    console.log(this.Persona);
     console.log("click.ok");
     this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
       console.log(data);
@@ -113,6 +120,10 @@ export class ModalnewComponent implements OnInit {
     });
 
 
+  }
+  private setDateJson(date: any) {
+    let tail = "T00:00:00.000+00:00"
+    return date + tail;
   }
   get skillPorcentaje() {
     return this.formSkill.get('porcentaje')!.value;

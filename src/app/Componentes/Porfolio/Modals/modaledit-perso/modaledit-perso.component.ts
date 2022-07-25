@@ -72,7 +72,7 @@ export class ModaleditPersoComponent implements OnInit {
       this.Persona.redes[0].link_twitter = this.formEditPerso.value.link_tw,
       this.Persona.redes[0].link_facebook = this.formEditPerso.value.link_facebook,
       this.Persona.redes[0].link_instagram = this.formEditPerso.value.link_instagram
-    console.log(this.Persona)
+
     this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
       console.log(data)
     });

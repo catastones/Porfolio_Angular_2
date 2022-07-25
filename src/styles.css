@@ -10,7 +10,7 @@
   /* position: absolute;
     z-index: 1; */
 
-  height: 200px;
+  height: 315px;
 }
 
 
@@ -20,8 +20,8 @@
   position: absolute;
   width: 100px;
   border-radius: 50%;
-  z-index: 2;
-  margin-top: 150px;
+  z-index: 1;
+  margin-top: 250px;
   margin-left: 25px;
 }
 
@@ -32,6 +32,7 @@
 
 .portada_data {
   margin-top: 25px;
+  
 }
 
 .card-borde {
