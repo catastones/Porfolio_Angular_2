@@ -22,6 +22,7 @@ export class ModaleditComponent implements OnInit {
   types_job: any;
   estados: any;
   Persona: any | undefined;
+
   closeResult = '';
   value: any;
   @Input() entidad: string = "0";
@@ -71,20 +72,27 @@ export class ModaleditComponent implements OnInit {
   });
   ngOnInit(): void {
     this.getPersona();
+    this.getTypes();
+    this.getEstados();
     this.suscription = this.datosporfolio.refresh$.subscribe(
       () => { this.getPersona(); });
-    this.getTypes();
-    this.datosporfolio.getEstado().subscribe(data => {
-      this.estados = data;
-
-    });
-
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getTypes(); });
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getEstados(); });
   }
 
+  ngOnDestroy(): void {
+    this.suscription?.unsubscribe();
+  }
+  getEstados() {
+    this.datosporfolio.getEstado().subscribe(data => {
+      this.estados = data;
+    });
+  }
   getTypes() {
     this.datosporfolio.getTypeJob().subscribe(data => {
       this.types_job = data;
-      // console.log(this.types_job);
     });
   }
   getPersona() {
@@ -125,8 +133,8 @@ export class ModaleditComponent implements OnInit {
       case "experiencia":
         this.Persona.experiencias[this.id].puesto = this.formExpe.value.puesto;
         this.Persona.experiencias[this.id].empresa = this.formExpe.value.empresa;
-        this.Persona.experiencias[this.id].fecha_inicio = this.formExpe.value.fecha_inicio;
-        this.Persona.experiencias[this.id].fecha_final = this.formExpe.value.fecha_final;
+        this.Persona.experiencias[this.id].fecha_inicio = this.setDateJson(this.formExpe.value.fecha_inicio);
+        this.Persona.experiencias[this.id].fecha_final = this.setDateJson(this.formExpe.value.fecha_final);
         this.Persona.experiencias[this.id].tareas = this.formExpe.value.tareas;
         this.Persona.experiencias[this.id].url_img_logo = this.formExpe.value.url_img_logo;
         this.Persona.experiencias[this.id].typejob = this.formExpe.value.typejob;
@@ -134,16 +142,16 @@ export class ModaleditComponent implements OnInit {
       case "educacion":
         this.Persona.educacion[this.id].establecimiento = this.formEduca.value.establecimiento;
         this.Persona.educacion[this.id].carrera = this.formEduca.value.carrera;
-        this.Persona.educacion[this.id].fecha_inicio = this.formEduca.value.fecha_inicio_e;
-        this.Persona.educacion[this.id].fecha_final = this.formEduca.value.fecha_final_e;
+        this.Persona.educacion[this.id].fecha_inicio = this.setDateJson(this.formEduca.value.fecha_inicio_e);
+        this.Persona.educacion[this.id].fecha_final = this.setDateJson(this.formEduca.value.fecha_final_);
         this.Persona.educacion[this.id].url_logo = this.formEduca.value.url_logo;
         this.Persona.educacion[this.id].estado = this.formEduca.value.estado;
         break;
       case "cursos":
         this.Persona.cursos[this.id].establecimiento = this.formCurso.value.establecimiento;
         this.Persona.cursos[this.id].certificacion = this.formCurso.value.certificacion;
-        this.Persona.cursos[this.id].fecha_inicio = this.formCurso.value.fecha_inicio_c;
-        this.Persona.cursos[this.id].fecha_final = this.formCurso.value.fecha_final_c;
+        this.Persona.cursos[this.id].fecha_inicio = this.setDateJson(this.formCurso.value.fecha_inicio_c);
+        this.Persona.cursos[this.id].fecha_final = this.setDateJson(this.formCurso.value.fecha_final_c);
         this.Persona.cursos[this.id].url_logo = this.formCurso.value.url_logo;
         this.Persona.cursos[this.id].estado = this.formCurso.value.estado;
         break;
@@ -164,7 +172,7 @@ export class ModaleditComponent implements OnInit {
       console.log(data);
 
     });
-
+    this.getPersona();
   }
   onSetValue_educa(): void {
     this.formEduca.patchValue({
@@ -174,7 +182,7 @@ export class ModaleditComponent implements OnInit {
       fecha_inicio_e: this.formatDate(this.Persona.educacion[this.id].fecha_inicio),
       fecha_final_e: this.formatDate(this.Persona.educacion[this.id].fecha_final),
       url_logo: this.Persona.educacion[this.id].url_logo,
-      estado: this.Persona.educacion[this.id].estado.estado
+      estado: this.Persona.educacion[this.id].estado
     });
   }
   onSetValue_cursos(): void {
@@ -185,7 +193,7 @@ export class ModaleditComponent implements OnInit {
       fecha_inicio_c: this.formatDate(this.Persona.cursos[this.id].fecha_inicio),
       fecha_final_c: this.formatDate(this.Persona.cursos[this.id].fecha_final),
       url_logo: this.Persona.cursos[this.id].url_logo,
-      estado: this.Persona.cursos[this.id].estado.estado
+      estado: this.Persona.cursos[this.id].estado
     });
   }
   onSetValue_skills(): void {
@@ -215,7 +223,7 @@ export class ModaleditComponent implements OnInit {
       fecha_final: this.formatDate(this.Persona.experiencias[this.id].fecha_final),
       tareas: this.Persona.experiencias[this.id].tareas,
       url_img_logo: this.Persona.experiencias[this.id].url_img_logo,
-      typejob: this.Persona.experiencias[this.id].typejob.type_empleo
+      typejob: this.Persona.experiencias[this.id].typejob
     });
   }
 

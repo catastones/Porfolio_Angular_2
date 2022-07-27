@@ -49,8 +49,8 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label for="logo"> Logo empresa </label>
-              <input type="file" class="form-control-file" id="logo" formControlName="url_img_logo">
+              <label for="logo"> URL Logo empresa </label>
+              <input class="form-control" id="logo" formControlName="url_img_logo">
             </div>
           </div>
           <div class="col">
@@ -83,7 +83,7 @@
 
 <ng-template #educacion let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Nueva Educacion</h4>
+    <h4 class="modal-title" id="modal-basic-title">Nueva Educación</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
@@ -133,8 +133,9 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label for="url_logo"> Logo Institución </label>
-              <input type="file" class="form-control-file" id="url_logo" formControlName="url_logo">
+              <label for="url_logo"> URL Logo Institución </label>
+              <input id="url_logo" class="form-control " name="url_logo" formControlName="url_logo">
+
             </div>
           </div>
           <div class="col">
@@ -212,8 +213,8 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label for="url_logo"> Logo Institución </label>
-              <input type="file" class="form-control-file" id="url_logo" formControlName="url_logo">
+              <label for="url_logo"> URL Logo Institución </label>
+              <input class="form-control" id="url_logo" formControlName="url_logo">
             </div>
           </div>
           <div class="col">
@@ -324,8 +325,8 @@
           </div>
           <div class="col">
             <div class="form-group">
-              <label for="url_img"> Imagen del proyecto </label>
-              <input type="file" class="form-control-file" id="url_img" formControlName="url_img">
+              <label for="url_img">URL Imagen del proyecto </label>
+              <input class="form-control" id="url_img" formControlName="url_img">
             </div>
           </div>
         </div>

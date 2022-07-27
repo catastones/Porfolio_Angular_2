@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -26,6 +27,7 @@ export class ModalnewComponent implements OnInit {
   value: any;
   data: any;
   @Input() entidad: string = "0";
+  suscription: Subscription | undefined;
 
   formExpe = new FormGroup({
     id: new FormControl('', Validators.required),
@@ -70,28 +72,42 @@ export class ModalnewComponent implements OnInit {
     url_img: new FormControl('', Validators.required)
   });
   ngOnInit(): void {
+    this.getPersona();
+    this.getTipos();
+    this.getEstados();
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getEstados(); });
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getTipos(); });
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getPersona(); });
+  }
+
+  ngOnDestroy(): void {
+    this.suscription?.unsubscribe();
+  }
+  getEstados() {
     this.datosporfolio.getEstado().subscribe(data => {
       this.estados = data;
-
     });
+  }
+  getTipos() {
     this.datosporfolio.getTypeJob().subscribe(data => {
       this.types_job = data;
-
     });
+  }
+  getPersona() {
     this.datosporfolio.obtenerDataPersona().subscribe(data => {
       this.Persona = data;
     });
   }
   open(content: any) {
     this.modalService.open(content, { size: 'lg' })
-
-
   }
   savedata(entidad: string) {
     switch (entidad) {
       case "experiencia":
         this.Persona.experiencias.push(
-
           this.formExpe.value
         );
         break;
@@ -105,8 +121,7 @@ export class ModalnewComponent implements OnInit {
         this.Persona.skills.push(this.formSkill.value)
         break;
       case "proyectos":
-        this.formProyecto.value.fecha_p = this.setDateJson(this.formProyecto.value.fecha_p);
-
+        this.formProyecto.value.fecha = this.setDateJson(this.formProyecto.value.fecha);
         this.Persona.proyectos.push(
           this.formProyecto.value
         )

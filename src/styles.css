@@ -5,7 +5,9 @@
 
 }
 
-
+hr.solid {
+  border-top: 3px solid #bbb;
+}
 .image-portada {
   /* position: absolute;
     z-index: 1; */

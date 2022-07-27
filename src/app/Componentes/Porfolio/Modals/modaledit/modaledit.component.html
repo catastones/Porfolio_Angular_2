@@ -50,15 +50,17 @@
           <div class="col">
             <div class="form-group">
               <label for="logo"> Logo empresa </label>
-              <input type="file" class="form-control-file" id="logo" formControlName="url_img_logo">
+              <input id="logo" class="form-control" name="logo" formControlName="url_img_logo">
+
             </div>
           </div>
           <div class="col">
             <div class="form-group">
               <label for="typejob"> Tipo de empleo </label>
               <select class="form-select" id="typejob" aria-label="Default select example" formControlName="typejob">
-                <option [defaultSelected]=true>{{Persona.experiencias[id].typejob.type_empleo}}</option>
-                <option *ngFor="let types of types_job" [ngValue]="types">
+
+                <option *ngFor="let types of types_job" [ngValue]="types"
+                  [selected]="Persona.experiencias[id].typejob.type_empleo">
                   {{ types.type_empleo }}
                 </option>
               </select>
@@ -135,15 +137,17 @@
           <div class="col">
             <div class="form-group">
               <label for="url_logo"> Logo Institución </label>
-              <input type="file" class="form-control-file" id="url_logo" formControlName="url_logo">
+              <input id="url_logo" class="form-control " name="url_logo" formControlName="url_logo">
+
             </div>
           </div>
           <div class="col">
             <div class="form-group">
               <label for="estado"> Estado </label>
               <select class="form-select" id="estado" aria-label="Default select example" formControlName="estado">
-                <option [defaultSelected]=true>{{Persona.educacion[id].estado.estado}}</option>
-                <option *ngFor="let estado of estados" [ngValue]="estado">
+
+                <option *ngFor="let estado of estados" [selected]="Persona.educacion[id].estado.estado"
+                  [ngValue]="estado">
                   {{estado.estado }}
                 </option>
               </select>
@@ -156,6 +160,7 @@
     </form>
   </div>
   <div class="modal-footer">
+
     <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click') ">Cancel</button>
     <button type="button" class="btn btn-outline-dark"
       (click)="savedata(entidad);modal.close('Save click') ">Save</button>
@@ -215,27 +220,28 @@
           <div class="col">
             <div class="form-group">
               <label for="url_logo"> Logo Institución </label>
-              <input type="file" class="form-control-file" id="url_logo" formControlName="url_logo">
+              <input id="url_logo" class="form-control" name="url_logo" formControlName="url_logo">
+
             </div>
           </div>
           <div class="col">
             <div class="form-group">
               <label for="estado"> Estado </label>
               <select class="form-select" id="estado" aria-label="Default select example" formControlName="estado">
-                <option [defaultSelected]=true>{{Persona.cursos[id].estado.estado}}</option>
-                <option *ngFor="let estado of estados" [ngValue]="estado">
+
+                <option *ngFor="let estado of estados" [ngValue]="estado" [selected]="Persona.cursos[id].estado.estado">
                   {{estado.estado }}
                 </option>
               </select>
+
             </div>
           </div>
         </div>
       </div>
-
-
     </form>
   </div>
   <div class="modal-footer">
+    {{id}}
     <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click') ">Cancel</button>
     <button type="button" class="btn btn-outline-dark"
       (click)="savedata(entidad);modal.close('Save click') ">Save</button>
@@ -328,7 +334,8 @@
           <div class="col">
             <div class="form-group">
               <label for="url_img"> Imagen del proyecto </label>
-              <input type="file" class="form-control-file" id="url_img" formControlName="url_img">
+              <input id="url_img" class="form-control " name="url_img" formControlName="url_img">
+
             </div>
           </div>
         </div>
@@ -344,8 +351,6 @@
 
         </div>
       </div>
-
-
     </form>
   </div>
   <div class="modal-footer">

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { PorfolioDataService } from 'src/app/servicios/porfolio-data.service';
 @Component({
   selector: 'app-modal-delete',
@@ -15,14 +16,23 @@ export class ModalDeleteComponent implements OnInit {
 
   @Input() id: number = 0;
   @Input() entidad: string = "0";
+  suscription: Subscription | undefined;
   Persona: any;
   data: any;
 
   ngOnInit(): void {
+    this.getPersona();
+    this.suscription = this.datosporfolio.refresh$.subscribe(
+      () => { this.getPersona(); });
+
+  }
+  ngOnDestroy(): void {
+    this.suscription?.unsubscribe();
+  }
+  getPersona() {
     this.datosporfolio.obtenerDataPersona().subscribe(data => {
       this.Persona = data;
     })
-
   }
   open(content: any) {
     this.dataClear(this.id, this.entidad)
