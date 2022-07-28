@@ -34,6 +34,15 @@ export class LoginComponent implements OnInit {
         alert('Status: ' + error.status + '   ' +
           'Type: ' + error.statusText);
       });
+    this.resetInput();
+  }
+  resetInput() {
+    this.formLogin.value.user = "";
+    this.formLogin.value.pass = "";
+    this.formLogin.patchValue({
+      user: "",
+      pass: ""
+    })
   }
 
   emitAut(user: any) {
