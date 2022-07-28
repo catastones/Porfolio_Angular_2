@@ -13,11 +13,11 @@ export class EncabezadoComponent implements OnInit {
   @Input() datos: any | undefined;
   @Input() aut: boolean = false;
 
-  imgPortada: string = "";
-  imgPerfil: string = "";
+
   suscription: Subscription | undefined;
 
   ngOnInit(): void {
+
 
   }
 

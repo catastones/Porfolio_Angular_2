@@ -20,6 +20,8 @@ export class ModaleditPersoComponent implements OnInit {
     provincia: new FormControl('', Validators.required),
     ocupacion: new FormControl('', Validators.required),
     fecha_nacimiento: new FormControl('', Validators.required),
+    url_img_perfil: new FormControl('', Validators.required),
+    url_img_portada: new FormControl('', Validators.required),
     link_github: new FormControl('', Validators.required),
     link_linkedin: new FormControl('', Validators.required),
     link_youtube: new FormControl('', Validators.required),
@@ -47,6 +49,8 @@ export class ModaleditPersoComponent implements OnInit {
       provincia: this.Persona.provincia,
       ocupacion: this.Persona.ocupacion,
       fecha_nacimiento: this.Persona.fecha_nacimiento,
+      url_img_perfil: this.Persona.url_img_perfil,
+      url_img_portada: this.Persona.url_img_portada,
       link_github: this.Persona.redes[0].link_github,
       link_linkedin: this.Persona.redes[0].link_linkedin,
       link_youtube: this.Persona.redes[0].link_yuotube,
@@ -66,13 +70,15 @@ export class ModaleditPersoComponent implements OnInit {
       this.Persona.provincia = this.formEditPerso.value.provincia,
       this.Persona.ocupacion = this.formEditPerso.value.ocupacion,
       this.Persona.fecha_nacimiento = this.formEditPerso.value.fecha_nacimiento,
+      this.Persona.url_img_perfil = this.formEditPerso.value.url_img_perfil,
+      this.Persona.url_img_portada = this.formEditPerso.value.url_img_portada,
       this.Persona.redes[0].link_github = this.formEditPerso.value.link_github,
       this.Persona.redes[0].link_linkedin = this.formEditPerso.value.link_linkedin,
       this.Persona.redes[0].link_yuotube = this.formEditPerso.value.link_youtube,
       this.Persona.redes[0].link_twitter = this.formEditPerso.value.link_tw,
       this.Persona.redes[0].link_facebook = this.formEditPerso.value.link_facebook,
       this.Persona.redes[0].link_instagram = this.formEditPerso.value.link_instagram
-
+    console.log(this.Persona);
     this.datosporfolio.setDataPersona(this.Persona).subscribe(data => {
       console.log(data)
     });

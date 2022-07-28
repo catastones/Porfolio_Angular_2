@@ -12,7 +12,7 @@ hr.solid {
   /* position: absolute;
     z-index: 1; */
 
-  height: 315px;
+  height: 315%;
 }
 
 
@@ -23,7 +23,7 @@ hr.solid {
   width: 100px;
   border-radius: 50%;
   z-index: 1;
-  margin-top: 250px;
+  margin-top: 220px;
   margin-left: 25px;
 }
 
