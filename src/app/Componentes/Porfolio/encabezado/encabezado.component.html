@@ -1,15 +1,10 @@
    <section>
      <div class="card card-borde mb-1 ">
-
-       <img class="card-img-top image-portada" alt="" [src]="datos.url_img_portada">
-
-
-       <img class="img-fluid img-foto" [src]="datos.url_img_perfil" alt="">
-
-
-
+       <div>
+         <img class="card-img-top image-portada" alt="" [src]="datos.url_img_portada">
+       </div>
        <div class="card-body portada_data ">
-
+         <img class="img-fluid img-foto" [src]="datos.url_img_perfil" alt="">
          <h5 class="card-title">{{datos.nombre }} {{datos.apellido}}</h5>
          <span class="card-text">{{datos.ocupacion}}</span>
          <br>
