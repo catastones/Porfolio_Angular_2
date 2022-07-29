@@ -20,6 +20,7 @@ import { ModaleditComponent } from './Componentes/Porfolio/Modals/modaledit/moda
 import { ModalinfoeditComponent } from './Componentes/Porfolio/Modals/modalinfoedit/modalinfoedit.component';
 import { LoginComponent } from './Componentes/Porfolio/navbar/login/login.component';
 import { ModaleditPersoComponent } from './Componentes/Porfolio/Modals/modaledit-perso/modaledit-perso.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { ModaleditPersoComponent } from './Componentes/Porfolio/Modals/modaledit
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

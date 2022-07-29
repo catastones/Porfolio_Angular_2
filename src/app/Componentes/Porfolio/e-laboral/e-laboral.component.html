@@ -19,12 +19,17 @@
                     <span class="card-text"><small>{{experiencia.empresa}}</small></span>
                     <p class="card-text text-muted">
                       {{ experiencia.tareas}}
+
                     </p>
-                    <span class="card-text text-muted">
-                      <small>Desde : {{ experiencia.fecha_inicio | date :'dd/MM/yyyy'}}
-                        - Hasta : {{ experiencia.fecha_final | date :'dd/MM/yyyy'}}
-                      </small>
-                    </span>
+                    <div class="d-flex justify-content-between">
+                      <span class="card-text text-muted">Tipo de empleo: {{experiencia.typejob.type_empleo}}</span>
+                      <span class="card-text text-muted">
+                        <small>Desde : {{ experiencia.fecha_inicio | date :'dd/MM/yyyy'}}
+                          - Hasta : {{ experiencia.fecha_final | date :'dd/MM/yyyy'}}
+                        </small>
+                      </span>
+                    </div>
+
                   </div>
                 </div>
                 <div class="col">
